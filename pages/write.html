@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Writer</title>
+    <link rel="stylesheet" href="write.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Initial Page with Write Button -->
+    <div id="initial-page">
+      <button id="write-button">
+        <i class="fa-solid fa-pen-to-square"></i>Write
+      </button>
+    </div>
+
+    <!-- New Page with Editable Fields and Publish Button (Hidden Initially) -->
+    <div id="new-page" class="hidden">
+      <h4>Create a Post</h4>
+      <div
+        id="editable-title"
+        class="editable"
+        contenteditable="true"
+        data-placeholder="Title"
+      ></div>
+      <br />
+      <div
+        id="editable-content"
+        class="editable"
+        contenteditable="true"
+        data-placeholder="Tell Your Story..."
+      ></div>
+      <br />
+      <button id="publish-button">Publish</button>
+    </div>
+
+    <!-- Section to Display the Submitted Posts -->
+    <div id="posts-section"></div>
+
+    <script src="write.js"></script>
+  </body>
+</html>
