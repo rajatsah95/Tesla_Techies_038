@@ -1,0 +1,133 @@
+{
+    "users": [
+    {
+      "id": 1,
+      "name": "rajat",
+      "username": "rajatsah",
+      "password": "88888888",
+      "email": "rajatsah95@gmail.com",
+      "mobile": "8544255945"
+    },
+    {
+      "name": "Saifuddin",
+      "username": "Saifuddin",
+      "password": "123456789",
+      "email": "saifuddin2k17@gmail.com",
+      "mobile": "9851902688",
+      "id": 2
+    }
+    
+  ],
+
+    "articles": [
+    {
+      "id": 1,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wDZLZ6BecUn5rtnNEkkrApwxwhffoGGZlA&s",
+      "authorName": "Jane Doe",
+      "publicationName": "Tech Insights",
+      "publicationDate": "06-01-2024",
+      "articleTitle": "The Future of AI in Healthcare",
+      "content": "Artificial intelligence is revolutionizing healthcare. From predictive analytics to personalized medicine, AI technologies are helping clinicians make better decisions and improve patient outcomes...",
+      "articleImage": "https://picsum.photos/id/1/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 2,
+      "authorImage": "https://www.davidchang.ca/wp-content/uploads/2020/09/David-Chang-Photography-Headshots-Toronto-61.jpg",
+      "authorName": "John Smith",
+      "publicationName": "Health Tech",
+      "publicationDate": "06-02-2024",
+      "articleTitle": "AI and Predictive Analytics in Medicine",
+      "content": "Predictive analytics powered by AI is providing new insights into patient data, helping healthcare providers anticipate health issues before they become critical...",
+      "articleImage": "https://picsum.photos/id/2/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 3,
+      "authorImage": "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?cs=srgb&dl=pexels-linkedin-2182970.jpg&fm=jpg",
+      "authorName": "Alice Johnson",
+      "publicationName": "Tech Today",
+      "publicationDate": "06-03-2024",
+      "articleTitle": "Personalized Medicine: The AI Revolution",
+      "content": "AI is paving the way for personalized medicine, offering treatments tailored to individual patient profiles, thus enhancing effectiveness and reducing side effects...",
+      "articleImage": "https://picsum.photos/id/3/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 4,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s",
+      "authorName": "Michael Brown",
+      "publicationName": "Innovative Health",
+      "publicationDate": "06-04-2024",
+      "articleTitle": "The Impact of AI on Radiology",
+      "content": "Artificial intelligence is transforming radiology by improving the accuracy and speed of diagnoses through advanced image recognition technologies...",
+      "articleImage": "https://picsum.photos/id/4/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 5,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkZUUzPWexwYFKYLr3eR81HIW6UGWZcAKoSQ&s",
+      "authorName": "Emily Davis",
+      "publicationName": "Future Health",
+      "publicationDate": "06-05-2024",
+      "articleTitle": "AI in Patient Monitoring Systems",
+      "content": "AI-powered patient monitoring systems are enhancing the ability to track patient health in real-time, providing critical data that can lead to timely interventions...",
+      "articleImage": "https://picsum.photos/id/5/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 6,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQzqpqlCggzfyOzZjHe6hUdz44tKUPZESpkQ&s",
+      "authorName": "David Wilson",
+      "publicationName": "Tech Horizons",
+      "publicationDate": "06-06-2024",
+      "articleTitle": "AI and Robotic Surgery",
+      "content": "Robotic surgery, enhanced by AI, is providing greater precision and control, leading to less invasive procedures and quicker patient recovery times...",
+      "articleImage": "https://picsum.photos/id/6/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 7,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGmt7mgLLJbU_An415Sur0-Iq8kRKQzzAwCw&s",
+      "authorName": "Sophia Martinez",
+      "publicationName": "Health Innovations",
+      "publicationDate": "06-07-2024",
+      "articleTitle": "AI in Drug Discovery",
+      "content": "Artificial intelligence is accelerating drug discovery processes, significantly reducing the time and cost required to bring new drugs to market...",
+      "articleImage": "https://picsum.photos/id/7/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 8,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqSHLPBTh2ZGuUGdL0-SMusi-DYLRutF53g&s",
+      "authorName": "Daniel Lee",
+      "publicationName": "Medical Tech",
+      "publicationDate": "06-08-2024",
+      "articleTitle": "AI in Mental Health Care",
+      "content": "AI technologies are being developed to assist in the diagnosis and treatment of mental health conditions, offering new tools for clinicians and patients...",
+      "articleImage": "https://picsum.photos/id/8/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 9,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSlYVL1Z7yTyqxvmXpKLH5Ye8QrRuNC2sx2A&s",
+      "authorName": "Olivia Anderson",
+      "publicationName": "AI Healthcare",
+      "publicationDate": "06-09-2024",
+      "articleTitle": "AI in Healthcare Administration",
+      "content": "From automating administrative tasks to enhancing patient data management, AI is streamlining operations and improving efficiency in healthcare administration...",
+      "articleImage": "https://picsum.photos/id/9/200/300",
+      "articleType": "Technology"
+    },
+    {
+      "id": 10,
+      "authorImage": "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?cs=srgb&dl=pexels-olly-3785104.jpg&fm=jpg",
+      "authorName": "James Taylor",
+      "publicationName": "Tech Future",
+      "publicationDate": "06-10-2024",
+      "articleTitle": "The Role of AI in Genomics",
+      "content": "AI is playing a crucial role in genomics, helping researchers to decode genetic information faster and more accurately, paving the way for new medical breakthroughs...",
+      "articleImage": "https://picsum.photos/id/10/200/300",
+      "articleType": "Technology"
+    }
+  ] }
