@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Details</title>
+</head>
+<body>
+    <div id="article-details">
+        <!-- Details will be dynamically populated here -->
+    </div>
+
+    <script>
+        async function fetchArticleDetails(articleId) {
+            try {
+                let res = await fetch(`https://tesla-techies-038-2.onrender.com/articles/${articleId}`);
+                if (!res.ok) throw new Error("Network response was not ok");
+                let articleData = await res.json();
+                return articleData;
+            } catch (error) {
+                console.error("Error fetching article details:", error);
+                return null;
+            }
+        }
+
+        async function displayArticleDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('id');
+
+            if (!articleId) {
+                console.error("No article ID provided");
+                return;
+            }
+
+            let articleDetailsContainer = document.getElementById('article-details');
+            let article = await fetchArticleDetails(articleId);
+
+            if (!article) {
+                console.error("Article not found or error fetching details");
+                return;
+            }
+
+            // Example: Display article details
+            let articleTitle = document.createElement('h2');
+            articleTitle.textContent = article.articleTitle;
+            let articleImage = document.createElement('img');
+            articleImage.src = article.articleImage;
+
+            let authorName = document.createElement('p');
+            authorName.textContent = `Author: ${article.authorName}`;
+
+            let publicationName = document.createElement('p');
+            publicationName.textContent = `Publication: ${article.publicationName}`;
+
+            let content = document.createElement('p');
+            content.textContent = article.content;
+
+            // Append details to the container
+            articleDetailsContainer.appendChild(articleTitle);
+            articleDetailsContainer.appendChild(articleImage);
+            articleDetailsContainer.appendChild(authorName);
+            articleDetailsContainer.appendChild(publicationName);
+            articleDetailsContainer.appendChild(content);
+         
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayArticleDetails();
+        });
+    </script>
+</body>
+</html>
