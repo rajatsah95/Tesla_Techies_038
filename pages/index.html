@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet"
@@ -13,6 +14,14 @@
         * {
             margin: 0px;
             padding: 0;
+        }
+        .con{
+            max-width: 1450px;
+            margin: auto;
+        }
+        .con{
+            max-width: 1450px;
+            margin: auto;
         }
 
         .navbar-main {
@@ -45,7 +54,7 @@
 
         .search-1 {
             position: absolute;
-            left: 210px;
+            left: 190px;
             top: 45%;
             transform: translateY(-50%);
             width: 20px;
@@ -145,15 +154,15 @@
 
 <body>
     <header>
-        <div class="container">
+        <div class="con">
             <nav class="navbar-main">
                 <div class="nav-left">
-                    <img src="infohublogo.jpg" alt="" />
+                    <img src="infohub final logo.jpg" alt="" />
                     <input class="search-input" type="search" placeholder="Search" aria-label="Search" />
                     <span class="material-symbols-outlined search-1"> search </span>
                 </div>
                 <div class="nav-right">
-                    <a href="#" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
+                    <a href="write.html" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
                         <div>Write</div>
                     </a>
                     <a href="notification.html" class="icon-1" aria-label="link"><svg xmlns="http://www.w3.org/2000/svg"
@@ -170,10 +179,10 @@
                                 </div>
                                 <div>Profile</div>
                             </a>
-                            <a href="#" class="profile"><div><span class="material-symbols-outlined">
+                            <a href="library.html" class="profile"><div><span class="material-symbols-outlined">
                                 bookmarks
                                 </span></div><div>Library</div></a>
-                            <a href="#" class="profile"><div><span class="material-symbols-outlined">
+                            <a href="stories.html" class="profile"><div><span class="material-symbols-outlined">
                                 auto_stories
                                 </span></div><div>Stories</div></a>
                             <a href="#" class="profile"><div><span class="material-symbols-outlined">
@@ -199,22 +208,6 @@
         </div>
     </header>
 </body>
-<script>
-    function toggleDropdown() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.onclick = function (event) {
-        if (!event.target.matches(".dropbtn")) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains("show")) {
-                    openDropdown.classList.remove("show");
-                }
-            }
-        }
-    };
-</script>
+<script src="profileDropdown.js"></script>
 
 </html>
