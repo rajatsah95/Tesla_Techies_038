@@ -41,24 +41,25 @@ async function showData() {
 function displayData(newData) {
   console.log("Displaying data:", newData);
   newData.forEach((ele) => {
-    let card = document.createElement("div");
-    card.className = "card";
+    let card1 = document.createElement("div");
+    card1.className = "card1";
 
-    let authorImage = document.createElement("img");
-    authorImage.src = `${ele.authorImage}`;
-    authorImage.className = "authorImage";
+    let authorImage1 = document.createElement("img");
+    authorImage1.src = `${ele.authorImage}`;
+    authorImage1.className = "authorImage1";
 
     let authorName = document.createElement("p");
     authorName.innerHTML = `${ele.authorName}`;
 
     let publicationName = document.createElement("p");
     publicationName.innerHTML = ` in  ${ele.publicationName}`;
+    publicationName.className = "publicationNameLeft"
 
-    let articleDetails = document.createElement("p");
-    articleDetails.className = "articleDetails";
-    articleDetails.append(authorImage, authorName, publicationName);
+    let articleDetails1 = document.createElement("p");
+    articleDetails1.className = "articleDetails1";
+    articleDetails1.append(authorImage1, authorName, publicationName);
 
-    articleDetails.addEventListener('click', ()=>{
+    articleDetails1.addEventListener('click', ()=>{
       window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
     } )
 
@@ -79,10 +80,10 @@ function displayData(newData) {
     interactionBar.id = "interactionBar";
 
     let claps = document.createElement("p");
-    claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i>${ele.claps}`;
+    claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${ele.claps}`;
 
     let commentCounts = document.createElement("p");
-    commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i>${ele.commentCounts}`;
+    commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i> ${ele.commentCounts}`;
 
     let barleft = document.createElement("p");
     barleft.className = "barleft";
@@ -112,7 +113,7 @@ function displayData(newData) {
 
     let contentBox = document.createElement("div");
     contentBox.className = "contentBox";
-    contentBox.append(articleDetails, articleTitle, content, interactionBar);
+    contentBox.append(articleDetails1, articleTitle, content, interactionBar);
    
 
     let articleImage = document.createElement("img");
@@ -125,12 +126,12 @@ function displayData(newData) {
     } )
 
     let hr = document.createElement("hr");
-    card.append(contentBox, articleImageDiv);
-    // card.addEventListener('click', ()=>{
+    card1.append(contentBox, articleImageDiv);
+    // card1.addEventListener('click', ()=>{
     //   window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
 
     // } )
-    articles.append(card, hr);
+    articles.append(card1, hr);
   });
 }
 
@@ -254,4 +255,48 @@ async function handleScroll() {
     fetching = false;
   }
 }
-///////////////////////////////////////////////////////////INFINITE SCROLL/////////////////////////////////////////////////////////////////
+//////////////////////////////////////INFINITE SCROLL/////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////Search Feature Start//////////////////////
+let searchInput = document.querySelector(".search-input")
+console.log(searchInput)
+searchInput.addEventListener('input', function(event) {
+  console.log("Searching")
+  let query = event.target.value.trim();
+  if (query.length > 1) {
+      fetch(`https://tesla-techies-038-2.onrender.com/articles`)
+          .then(response => response.json())
+          .then(data => {
+              let filteredData = data.filter(article => 
+                  article.articleTitle.toLowerCase().includes(query.toLowerCase()) ||
+                  article.content.toLowerCase().includes(query.toLowerCase())
+              );
+              displayResults(filteredData);
+          });
+  } else {
+      document.querySelector('.search-results').innerHTML = '';
+  }
+});
+
+searchInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+      event.preventDefault();
+      let query = event.target.value.trim();
+      if (query) {
+          window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+      }
+  }
+});
+
+function displayResults(results) {
+  let resultsContainer = document.querySelector('.search-results');
+  resultsContainer.innerHTML = '';
+  results.forEach(result => {
+      let resultItem = document.createElement('div');
+      resultItem.className = 'search-result-item';
+      resultItem.innerHTML = `<a href="details.html?id=${result.id}">${result.articleTitle}</a>`;
+      resultsContainer.appendChild(resultItem);
+  });
+}
+
+//////////////////////////Search Feature End//////////////////////
