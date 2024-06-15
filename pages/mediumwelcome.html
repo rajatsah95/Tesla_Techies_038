@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "DM Serif Display", serif;
+        }
+
+        .con {
+            max-width: 1500px;
+            margin: auto;
+
+        }
+
+        .nav-wel>img {
+            height: 60px;
+
+        }
+
+        .nav-wel {
+            margin: 0 130px 0 130px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* border: 1px solid red; */
+            background-color: #f7f4ed;
+            padding: 10px;
+
+
+        }
+
+        .header-wel {
+            background-color: #f7f4ed;
+            border-bottom: 2px solid;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .list-wel {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 20px;
+
+        }
+
+        .list-wel>a {
+            text-decoration: none;
+            color: black;
+
+        }
+
+        .list-wel>a>span {
+            list-style: none;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+
+        }
+
+        .btn-wel {
+            padding: 10px 15px;
+            color: white;
+            background-color: black;
+            border: none;
+            font-weight: 600;
+            border-radius: 20px;
+            letter-spacing: 1.5px;
+        }
+
+        .sec-section {
+            border-bottom: 2px solid;
+            position: relative;
+        }
+
+        .sec-wel {
+            background-color: #f7f4ed;
+            height: 100vh;
+            position: relative;
+        }
+
+        .sec-wel>h1 {
+            font-size: 100px;
+            font-weight: 800;
+            padding-top: 200px;
+            text-align: center;
+            /* border: 1px solid ; */
+            font-weight: 10;
+            line-height: 100px;
+        }
+
+        .sec-wel>p {
+            text-align: center;
+            font-size: 25px;
+            margin-top: 50px;
+        }
+
+        .sec-wel>div>a>button {
+            text-align: center;
+
+            margin-top: 50px;
+            padding: 10px 40px;
+            border-radius: 40px;
+            color: white;
+            background-color: black;
+            border: none;
+            font-weight: 100;
+            letter-spacing: 1.5px;
+
+        }
+
+        .start-wel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .footer-wel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background-color: #f7f4ed;
+            padding: 40px;
+        }
+
+        .footer-wel>li {
+            list-style: none;
+        }
+
+        .fixed-wel>.div-1>img {
+            position: absolute;
+            height: 300px;
+            top: 100px;
+        }
+
+        .fixed-wel>.div-1>span {
+            position: absolute;
+            top: 405px;
+            left: 50px;
+            color: #7f8892;
+            padding: 5px 15px;
+            border-radius: 25px;
+            background-color: #e5e5e5;
+        }
+
+        .fixed-wel>.div-1>p {
+            position: absolute;
+            top: 410px;
+            left: 140px;
+            color: #7f8892;
+        }
+
+        .fixed-wel>.div-2>img {
+            position: absolute;
+            height: 130px;
+            top: 0px;
+            right: 200px;
+            width: 400px;
+        }
+
+        .fixed-wel>.div-2>span {
+            position: absolute;
+            top: 140px;
+            right: 480px;
+            color: #7f8892;
+            padding: 5px 15px;
+            border-radius: 25px;
+            background-color: #e5e5e5;
+        }
+
+        .fixed-wel>.div-2>p {
+            position: absolute;
+            top: 145px;
+            right: 380px;
+            color: #7f8892;
+        }
+
+        .fixed-wel>.div-3>img {
+            position: absolute;
+            height: 90px;
+            bottom: 0px;
+            left: 200px;
+            width: 400px;
+        }
+
+        .fixed-wel>.div-3>span {
+            position: absolute;
+            bottom: 100px;
+            left: 330px;
+            color: #7f8892;
+            padding: 5px 15px;
+            border-radius: 25px;
+            background-color: #e5e5e5;
+        }
+
+        .fixed-wel>.div-3>p {
+            position: absolute;
+            bottom: 105px;
+            left: 500px;
+            color: #7f8892;
+        }
+
+        .fixed-wel>.div-4>img {
+            position: absolute;
+            height: 300px;
+            bottom: 60px;
+            right: 0;
+            width: 260px;
+        }
+
+        .fixed-wel>.div-4>span {
+            position: absolute;
+            bottom: 20px;
+            right: 180px;
+            color: #7f8892;
+            padding: 5px 15px;
+            border-radius: 25px;
+            background-color: #e5e5e5;
+        }
+
+        .fixed-wel>.div-4>p {
+            position: absolute;
+            bottom: 25px;
+            right: 85px;
+            color: #7f8892;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-wel">
+        <div class="con">
+            <nav class="nav-wel">
+                <img src="infohub final logo.jpg" alt="">
+                <div class="left-wel">
+                    <ul class="list-wel">
+                        <a href=""><span>Our Story</span></a>
+                        <a href=""><span>Membership</span></a>
+                        <a href=""><span>Write</span></a>
+                        <a href=""><span>Sign in</span></a>
+                        <a href=""><span><button class="btn-wel">Get Started</button></span></a>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="sec-section">
+        <div class="con">
+            <div class="sec-wel">
+                <h1>Human <br> stories &amp ideas</h1>
+                <p>A place to read, write, and deepen your understanding</p>
+                <div class="start-wel">
+
+                    <a href="">
+
+                        <button>Start Reading</button>
+                    </a>
+                </div>
+
+                <div class="fixed-wel">
+                    <div class="div-1">
+
+                        <img src="https://miro.medium.com/v2/format:webp/4*ffYDhlWj9Jqr0KG90JgFLQ.png" alt=""
+                            class="img-1">
+                        <span>Design</span>
+                        <p>381K Stories </p>
+                    </div>
+                    <div class="div-2">
+
+                        <img src="https://miro.medium.com/v2/format:webp/4*XD67GTTqlrp1z4HMDiQd9w.png" alt=""
+                            class="img-1">
+                        <span>Data Science</span>
+                        <p>333K Stories </p>
+                    </div>
+                    <div class="div-3">
+
+                        <img src="https://miro.medium.com/v2/format:webp/4*A43nY1f2W69zGw_TkS0igA.png" alt=""
+                            class="img-1">
+                        <span>Self Improvement</span>
+                        <p>757K Stories </p>
+                    </div>
+                    <div class="div-4">
+
+                        <img src="https://miro.medium.com/v2/format:webp/4*2Yw3jYjZYAXYLeSGmQyvjw.png" alt=""
+                            class="img-1">
+                        <span>Design</span>
+                        <p>381K Stories </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="con">
+            <ul class="footer-wel">
+                <li>Help</li>
+                <li>Status</li>
+                <li>About</li>
+                <li>Careers</li>
+                <li>Press</li>
+                <li>Blog</li>
+                <li>Privacy</li>
+                <li>Terms</li>
+                <li>Text to speech</li>
+                <li>Teams</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
