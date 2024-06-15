@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    <style>
+           @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+        #recommendations1{
+             /* text-align: center; */
+             padding-left: 100px;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #rec-tags-bar{
+            display: flex;
+            /* justify-content: space-around; */
+            font-family: "Syne", sans-serif;
+            margin-bottom: 15px;
+            /* padding-left: 100px; */
+        }
+        /* #who-to-follow{
+            padding-left: 100px;
+        } */
+        #rec-tags-bar button{
+           border: none;
+           background-color: white;
+           border-bottom: 2px;
+           opacity: .8;
+           font-size: medium;
+        }
+        #rec-tags-bar button:hover{
+           border: none;
+           background-color: white;
+           border-bottom: 1px;
+           opacity: 1;
+        }
+
+        .authorImage{
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+        }
+        .card{
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .card button{
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            width: 60px;
+            height: 30px;
+        }
+   
+     .articleDetails{
+         width: 300px;
+         margin-left: 30px;
+      }
+    </style>
+</head>
+<body>
+    <section id="recommendations1">
+        <h1 >Refine recommendations</h1>
+        <section id="rec-tags-bar">
+            <button class="tags"  id="forYou">Following</button>
+            <button class="tags"  id="following">Reading History</button>
+            <button class="tags"  id="work">Muted</button>
+            <button class="tags"  id="react">Suggestions</button>
+        </section>
+        <section id="who-to-follow">
+            <h3>Who to Follow</h3>
+        </section>
+    </section>
+
+
+
+</body>
+</html>
+<script>
+    let whoToFollow = document.querySelector("#who-to-follow")
+    async function fetchData1(){
+      let res = await fetch('https://tesla-techies-038-2.onrender.com/users')
+      let data = await res.json()
+      return data
+   } 
+
+   async function showAuthors(){
+    let newData = await fetchData1()
+    displayData(newData)
+}
+showAuthors()
+
+    function displayData(newData){
+  console.log(newData)
+  newData.forEach(ele=> {
+     let card = document.createElement("div")
+     card.className = "card"
+     let authorImage = document.createElement("img")
+       authorImage.src = `${ele.authorImage}`
+       authorImage.className = "authorImage"
+     let authorName = document.createElement("p")
+       authorName.innerHTML =  `<h3>${ele.authorName}</h3>`
+     let bio = document.createElement("p")
+     bio.innerHTML = `${ele.content.substring(0, 30)}`
+     let articleDetails = document.createElement("div")
+     articleDetails.className = "articleDetails"
+       articleDetails.append(authorName, bio)
+        let follow = document.createElement("button"); follow.innerHTML = `Follow`
+      
+     card.append(authorImage, articleDetails, follow)
+     whoToFollow.append(card)
+  }) 
+}
+
+</script>
