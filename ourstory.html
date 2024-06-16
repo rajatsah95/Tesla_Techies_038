@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +29,9 @@
             </form> -->
             <span>Our story</span>
             <span>Membership</span>
-            <span id="write">Write</span>
-            <span id="signUp">Sign up</span>
-            <span id="login">Login</span>
-            <button class="headerbutton" id="getStart">Get started</button>
+            <span>Write</span>
+            <span>Sign in</span>
+            <button class="headerbutton">Get started</button>
             
           </div>
         </div>
@@ -38,10 +39,25 @@
    
     <main>
 
-<h1>Your stories</h1>
-<h1>and ideas</h1>
-<h2>A place to read, write, and deepen your understanding</h2>
-<button class="mainbutton">Start Reading</button>
+
+      <h3>Everyone has a story to tell.</h3>
+
+      <h2 class="ourstoryh2">
+        Infohub is a home for human stories and ideas. Here, anyone can share
+        insightful perspectives, useful knowledge, and life wisdom with the
+        world—without building a mailing list or a following first. The internet
+        is noisy and chaotic; Infohub is quiet yet full of insight. It’s simple,
+        beautiful, collaborative, and helps you find the right audience for
+        whatever you have to say.
+      </h2>
+      <h2 class="ourstoryh2 o2" >
+        We believe that what you read and write matters. Words can divide or
+        empower us, inspire or discourage us. In a world where the most
+        sensational and surface-level stories often win, we’re building a system
+        that rewards depth, nuance, and time well spent. A space for thoughtful
+        conversation more than drive-by takes, and substance over packaging.
+      </h2>
+
 
     </main>
     <footer class="navbar navbar-expand-lg  ">
@@ -71,37 +87,4 @@
     </footer>
     
 </body>
-
 </html>
-
-<script>
-  //  let logo = document.getElementById("logo");
-    let signUp = document.getElementById("signUp");
-  
-    let login = document.getElementById("login");
-    let getStart = document.getElementById("getStart");
-    let write = document.getElementById("write");
-
-    // Clicking on signUp or getStart goes to the sign-up form
-    signUp.addEventListener("click", () => {
-        window.location.href = "login.html?form=signup";
-    });
-
-    getStart.addEventListener("click", () => {
-        window.location.href = "login.html?form=signup";
-    });
-
-    // Clicking on login or write goes to the login form
-    login.addEventListener("click", () => {
-        window.location.href = "login.html?form=login";
-    });
-
-    write.addEventListener("click", () => {
-        window.location.href = "login.html?form=login";
-    });
-
-    // Clicking on logo reloads the welcome page
-    // logo.addEventListener("click", () => {
-    //     // window.location = "index2.html";
-    // });
-</script>
