@@ -9,6 +9,11 @@ async function fetchData() {
     
 }
 
+let signInStatus=JSON.parse(localStorage.getItem("signInStatus"));
+let signUpStatus=JSON.parse(localStorage.getItem("signUpStatus"));
+console.log(signInStatus);
+console.log(signUpStatus);
+
 let naame = document.getElementById("name");
 let signupUsername = document.getElementById("signupUsername");
 let email = document.getElementById("email");
@@ -101,7 +106,10 @@ loginButton.addEventListener("click",()=>{
             username:loginUsername.value,
             password:loginPassword.value
         }
-       
+        let logedUser=JSON.parse(localStorage.getItem("logedUser"))||{};
+        logedUser={...userCredentials};
+        console.log(logedUser);
+        localStorage.setItem(JSON.stringify("logedUser",JSON.stringify(userCredentials)));
         checkUserExistance(userCredentials);
         // let isSignedUpUser=alreadySignedUpOrNot(userCredentials);
     }

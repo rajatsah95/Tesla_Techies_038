@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info_Hub</title>
-    <link rel="stylesheet" href="./rs_styles.css">
+    <!-- <link rel="stylesheet" href="./rs_styles.css"> -->
     <style>
         
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
@@ -114,14 +114,17 @@ font-weight: 500;
 <body>
     <header>
 <div>
-<img id="logoimage" src="assets/newLogoInfoHub.png" alt="">
+    <a href="welcome.html">
+        <img id="logoimage" src="assets/newLogoInfoHub.png" alt="">
+    </a>
 </div>
 <div >
     <span>Our story</span>
     <span>Membership</span>
-    <span class="sign-up1">Write</span>
-    <span class="sign-in1">Sign in</span>
-    <button class="headerbutton sign-up1" >Get started</button>
+    <span class="sign-up1" id="write">Write</span>
+    <span class="sign-up1" id="signUp">sign up</span>
+    <span class="sign-in1" id="login">Sign in</span>
+    <button class="headerbutton sign-up1" id="getStart">Get started</button>
 
 </div>
     </header>
@@ -147,16 +150,32 @@ font-weight: 500;
 </body>
 </html>
 <script>
-  let signIn = document.querySelector(".sign-in1")
-  signIn.addEventListener('click', ()=>{
-       window.location.href = "login.html"
-  })
-  let signUp = document.querySelector(".sign-up1")
-  signUp.addEventListener('click', ()=>{
-       window.location.href = "login.html"
-  })
-  let startReading = document.querySelector("#start-reading")
-  startReading.addEventListener('click', ()=>{
-       window.location.href = "login.html"
-  })
+    let logo = document.getElementById("logo");
+    let signUp = document.getElementById("signUp");
+    let login = document.getElementById("login");
+    let getStart = document.getElementById("getStart");
+    let write = document.getElementById("write");
+
+    // Clicking on signUp or getStart goes to the sign-up form
+    signUp.addEventListener("click", () => {
+        window.location.href = "login.html?form=signup";
+    });
+
+    getStart.addEventListener("click", () => {
+        window.location.href = "login.html?form=signup";
+    });
+
+    // Clicking on login or write goes to the login form
+    login.addEventListener("click", () => {
+        window.location.href = "login.html?form=login";
+    });
+
+    write.addEventListener("click", () => {
+        window.location.href = "login.html?form=login";
+    });
+
+    // Clicking on logo reloads the welcome page
+    logo.addEventListener("click", () => {
+        window.location = "welcome.html";
+    });
 </script>
