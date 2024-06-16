@@ -51,21 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
 const recommended_topic=["React","Web development","Entrepreneurship", "Information","Javascript","Work","Database","Data analytics"]
 let staff_picks = document.querySelector("#staff-picks");
 let recommend_topic = document.querySelector("#recommend-topics");
-async function fetchData() {
+async function fetchStaffData() {
     let res = await fetch('https://tesla-techies-038-2.onrender.com/articles');
     let data = await res.json();
     return data;
 }
 
-async function showData() {
-    let newData = await fetchData();
-    displayData(newData);
+async function showStaffData() {
+    let newData = await fetchStaffData();
+    displayStaffData(newData);
 
     
         getdata(recommended_topic);
 }
 
-function displayData(newData) {
+function displayStaffData(newData) {
     let clapsData= newData.filter(ele=>
         ele.claps > 110
     )
@@ -120,4 +120,4 @@ function getdata(recommended_topic){
     })
 }
 
-showData();
+showStaffData();

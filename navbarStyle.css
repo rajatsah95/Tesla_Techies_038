@@ -3,10 +3,10 @@
     margin: 0px;
     padding: 0;
 } */
-.con{
+/* .con{
     max-width: 1450px;
     margin: auto;
-}
+} */
 .con{
     max-width: 1450px;
     margin: auto;
@@ -36,8 +36,11 @@
     padding-left: 40px;
     box-sizing: border-box;
     background-color: #f9f9f9;
-    border-radius: 40px;
-    border: none;
+    /* border-radius: 40px; */
+    width: 600px;
+   /* border-color: blue; */
+   border-image: linear-gradient(45deg, red, yellow, green, blue) 1;
+   
 }
 
 .search-1 {
@@ -53,7 +56,7 @@
 }
 
 .search-input:focus {
-    border: none;
+    /* border: none; */
     outline: none;
 }
 
@@ -145,11 +148,11 @@ hr{
     gap: 0px;
 }
 
-.section-left {
-    /* width: 65%; */
-    height: auto;
-    /* border: 1px solid red; */
-}
+/* .section-left {
+    width: 65%;
+    height: auto; 
+     border: 1px solid red;
+} */
 
 .library-heading {
     margin: 80px 120px 40px 120px;
@@ -255,8 +258,9 @@ hr{
 
     border-radius: 10px;
 
-    margin: 15px 0px 20px 40px;
+    margin: 15px 0px 20px 0px;
     margin-bottom: 20px;
+    /* border: 1px solid red; */
 }
 
 .author-info {
@@ -269,9 +273,9 @@ hr{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    object-fit: cover;
+     object-fit: cover;
     margin-right: 20px;
-}
+} 
 
 .authorName,
 .publicationName {
