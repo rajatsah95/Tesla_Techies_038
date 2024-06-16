@@ -1,3 +1,4 @@
+// Asynchronous function to fetch data from the API
 async function fetchData() {
     let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
         method: "GET",
@@ -6,9 +7,9 @@ async function fetchData() {
         }
     });
     let data = await res.json();
-    
 }
 
+// Elements from the DOM
 let naame = document.getElementById("name");
 let signupUsername = document.getElementById("signupUsername");
 let email = document.getElementById("email");
@@ -23,61 +24,34 @@ let signupFormContainer = document.getElementById("signupFormContainer");
 let showLoginFormLink = document.getElementById("showLoginForm");
 let showSignupFormLink = document.getElementById("showSignupForm");
 
-let loginUsername=document.getElementById("loginUsername");
-let loginPassword=document.getElementById("loginPassword");
-let loginButton=document.getElementById("loginButton");
+let loginUsername = document.getElementById("loginUsername");
+let loginPassword = document.getElementById("loginPassword");
+let loginButton = document.getElementById("loginButton");
 
-signupButton.addEventListener("click", async (e) => {
-    
-
-    if(naame.value===""||signupUsername.value===""||email.value===""||contact.value===""||signupPassword.value===""){
-        window.alert("All The Fields Are Required!");
-    }
-    else{
-        let user = {
-            name: naame.value,
-            username: signupUsername.value,
-            email: email.value,
-            contact: contact.value,
-            password: signupPassword.value
-        };
-        await addNewUser(user);
-        fetchData();
-        signupForm.reset();
-        toggleForms();
-    }
-});
-
-async function addNewUser(user) {
-    let isSameUser=await checkAlreadyHaveAccountOrNot(user.username);
-    
-    if(isSameUser===true){
-        window.alert("User Already Exist. Go to signIn");
-    }
-    else{
-    
-        let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
-        let data = await res.json();
-    
-    }
+// Function to parse URL parameters
+function getQueryParams() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams;
 }
 
-// Toggle visibility between signup and login forms
-function toggleForms() {
-    if (signupFormContainer.style.display === "none") {
+// Show the correct form based on the query parameter
+window.onload = () => {
+    const params = getQueryParams();
+    const formType = params.get("form");
+    
+    if (formType === "signup") {
         signupFormContainer.style.display = "block";
         loginFormContainer.style.display = "none";
-    } else {
-        signupFormContainer.style.display = "none";
+    } else if (formType === "login") {
         loginFormContainer.style.display = "block";
+        signupFormContainer.style.display = "none";
+    } else {
+        // Default view if no parameter or unknown parameter
+        signupFormContainer.style.display = "block";
+        loginFormContainer.style.display = "none";
     }
-}
+};
 
 // Event listeners for switching between forms
 showLoginFormLink.addEventListener("click", (e) => {
@@ -92,70 +66,130 @@ showSignupFormLink.addEventListener("click", (e) => {
     signupFormContainer.style.display = "block";
 });
 
-loginButton.addEventListener("click",()=>{
-    if(loginUsername.value===""||loginPassword.value===""){
-        window.alert("All fields are required");
+// Sign-up functionality
+signupButton.addEventListener("click", async (e) => {
+    let password=signupPassword.value;
+    if(password.length>=4){
+        
     }
     else{
-        let userCredentials={
-            username:loginUsername.value,
-            password:loginPassword.value
-        }
-       
-        checkUserExistance(userCredentials);
-        // let isSignedUpUser=alreadySignedUpOrNot(userCredentials);
+        window.alert("Password length must be between 4 and 8 characters.");
+        return;
     }
-})
-
-async function checkAlreadyHaveAccountOrNot(username){
-    let res=await fetch(`https://tesla-techies-038-3.onrender.com/users`,{
-        method: "GET",
-        headers:{
-            "Content-type":"application/json"
+    if (naame.value === "" || signupUsername.value === "" || email.value === "" || contact.value === "" || signupPassword.value === "") {
+        window.alert("All The Fields Are Required!");
+    } else {
+        let user = {
+            name: naame.value,
+            username: signupUsername.value,
+            email: email.value,
+            contact: contact.value,
+            password: signupPassword.value
+        };
+        
+        // Add new user and handle the response
+        let isUserAdded = await addNewUser(user);
+        
+        // If user is successfully added, reset the signup form and switch to login form
+        if (isUserAdded) {
+            signupForm.reset();
+            showLoginForm();
         }
-    })
-    let data=await res.json();
+    }
+});
 
-    let sameUser=false;
-    data.forEach((e)=>{
-        if(e.username===username){
-            sameUser=true;
-        }
-    })
-    return sameUser;
+// Function to add a new user to the database
+async function addNewUser(user) {
+    let isSameUser = await checkAlreadyHaveAccountOrNot(user.username);
+    
+    if (isSameUser) {
+        window.alert("User Already Exists. Go to Sign In");
+        return false;
+    } else {
+        let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(user)
+        });
+        let data = await res.json();
+        return true;
+    }
 }
 
-async function checkUserExistance(userCredentials){
-    let res=await fetch(`https://tesla-techies-038-3.onrender.com/users`,{
+// Function to check if a user with the same username already exists
+async function checkAlreadyHaveAccountOrNot(username) {
+    let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
         method: "GET",
-        headers:{
-            "Content-type":"application/json"
+        headers: {
+            "Content-type": "application/json"
         }
-    })
-    let data=await res.json();
+    });
+    let data = await res.json();
+
+    return data.some(e => e.username === username);
+}
+
+// Function to show the login form
+function showLoginForm() {
+    signupFormContainer.style.display = "none";
+    loginFormContainer.style.display = "block";
+}
+
+// Login functionality
+loginButton.addEventListener("click", () => {
+    if (loginUsername.value === "" || loginPassword.value === "") {
+        window.alert("All fields are required");
+    } else {
+        let userCredentials = {
+            username: loginUsername.value,
+            password: loginPassword.value
+        };
+        checkUserExistance(userCredentials);
+    }
+});
+
+// Function to check user existence and validate login
+async function checkUserExistance(userCredentials) {
+    let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json"
+        }
+    });
+    let data = await res.json();
 
     let userFound = false;
     let passwordCorrect = false;
+    let loggedUserId = 0;
     data.forEach((user) => {
         if (userCredentials.username === user.username) {
             userFound = true;
             if (userCredentials.password === user.password) {
                 passwordCorrect = true;
+                loggedUserId = user.id;
             }
         }
     });
 
-    // Handle the alerts based on the flags
     if (userFound && passwordCorrect) {
-        // window.alert("Login successful!");
-        // Redirect to another page or perform any other actions needed after successful login
-        window.location.href = "index1.html";
+        localStorage.setItem("loggedUser", JSON.stringify(userCredentials));
+        localStorage.setItem("loggedUserId", JSON.stringify(loggedUserId));
+        function skipToLandingPage() {
+            // Navigate to Page 3 and replace the current history entry for Page 2 with Page 1
+            window.location.href = 'index2.html';
+            history.replaceState(null, '', 'welcome.html'); // Replace Page 2 with Page 1 in history
+        }
+        skipToLandingPage();
+        // window.location.href = "landingPage.html";
     } else if (userFound && !passwordCorrect) {
         window.alert("Incorrect Password");
-    } else if (!userFound) {
+    } else {
         window.alert("Incorrect Username");
     }
 }
+
 
 // async function alreadySignedUpOrNot(userCredentials){
 //     let res=await fetch(`https://tesla-techies-038-3.onrender.com/users`,{

@@ -113,15 +113,16 @@ font-weight: 500;
 </head>
 <body>
     <header>
-<div>
+<div id="logo">
 <img id="logoimage" src="assets/newLogoInfoHub.png" alt="">
 </div>
 <div >
     <span>Our story</span>
     <span>Membership</span>
-    <span class="sign-up1">Write</span>
-    <span class="sign-in1">Sign in</span>
-    <button class="headerbutton sign-up1" >Get started</button>
+    <span class="sign-up1" id="write">Write</span>
+    <span class="sign-up1" id="signUp">Sign Up</span>
+    <span class="sign-in1" id="login">Login</span>
+    <button class="headerbutton sign-up1" id="getStart">Get Started</button>
 
 </div>
     </header>
@@ -146,17 +147,36 @@ font-weight: 500;
     </footer>
 </body>
 </html>
+
 <script>
-  let signIn = document.querySelector(".sign-in1")
-  signIn.addEventListener('click', ()=>{
-       window.location.href = "login.html"
-  })
-  let signUp = document.querySelector(".sign-up1")
-  signUp.addEventListener('click', ()=>{
-       window.location.href = "login.html"
-  })
-  let startReading = document.querySelector("#start-reading")
-  startReading.addEventListener('click', ()=>{
-       window.location.href = "login.html"
-  })
+
+    let logo = document.getElementById("logo");
+    let signUp = document.getElementById("signUp");
+    let login = document.getElementById("login");
+    let getStart = document.getElementById("getStart");
+    let write = document.getElementById("write");
+
+    // Clicking on signUp or getStart goes to the sign-up form
+    signUp.addEventListener("click", () => {
+        window.location.href = "login.html?form=signup";
+    });
+
+    getStart.addEventListener("click", () => {
+        window.location.href = "login.html?form=signup";
+    });
+
+    // Clicking on login or write goes to the login form
+    login.addEventListener("click", () => {
+        window.location.href = "login.html?form=login";
+    });
+
+    write.addEventListener("click", () => {
+        window.location.href = "login.html?form=login";
+    });
+
+    // Clicking on logo reloads the welcome page
+    // logo.addEventListener("click", () => {
+    //     // window.location = "index2.html";
+    // });
+    
 </script>
