@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notification</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,100,0,-25" />
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+        }
+
+        .con {
+            max-width: 1450px;
+            margin: auto;
+        }
+
+        .navbar-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px;
+        }
+
+        .nav-left {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left>a>img {
+            height: 50px;
+        }
+
+        .search-input {
+            /* width: 100%; */
+            padding: 10px;
+            padding-left: 40px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border-radius: 40px;
+
+            /* height: 20px; */
+            border: none;
+        }
+
+        .search-1 {
+            position: absolute;
+            left: 190px;
+            top: 45%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .search-input:focus {
+            border: none;
+            outline: none;
+        }
+
+        .nav-right {
+            height: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-right: 50px;
+        }
+
+        .write-1 {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            text-decoration: none;
+            color: gray;
+        }
+
+        .dropdown {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: greenyellow;
+        }
+
+        /* styles.css */
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            /* background-color: #4CAF50; */
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: greenyellow;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            right: 0;
+        }
+
+        .dropdown-content a {
+            color: gray;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            right: 0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content .profile {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        hr {
+            opacity: 0.5;
+        }
+        .lib-sec{
+            display: flex;
+        }
+        .section-left{
+            width: 65%;
+            height: auto;
+            /* border: 1px solid red; */
+        }
+        .section-right{
+            width: 35%;
+            height: auto;
+            /* border: 1px solid red; */
+        }
+        .library-heading{
+            margin: 80px 120px 40px 120px;
+            /* border: 1px solid blue; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .library-heading>h1{
+            font-size: 40px;
+        }
+        .library-heading>button{
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 17px;
+            background-color: #1a8917;
+            color: white;
+            border: none;
+        }
+        .library-heading>button:hover{
+            background-color: rgb(1, 108, 1);
+        }
+        .library-content{
+            margin: 0px 120px 0px 120px;
+            /* border: 1px solid blue; */
+        }
+        .your-lists{
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .library-content {
+    background-color: #fff;
+    /* padding: 20px; */
+    border: none;
+    
+    
+    margin-top: 20px;
+}
+
+.library-content ul.navigation {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.library-content ul.navigation li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.library-content ul.navigation li:hover, .library-content ul.navigation li.active {
+    border-bottom: 2px solid #000;
+}
+
+#content {
+    background-color: #fff;
+    /* padding: 20px; */
+    margin: 20px 120px 0px 120px;
+    width: 80%;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+.your-lists-line{
+    opacity: .25;
+}
+/* staff  */
+.section-right {
+            width: 35%;
+            height: auto;
+            border-left:.1px solid rgb(240, 240, 240) ;
+           
+            /* border: 1px solid red; */
+        }
+
+        #staff-picks>h4 {
+            margin: 70px 0 0 40px;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #staff-picks>.card {
+            display: flex;
+            flex-direction: column;
+
+            border-radius: 10px;
+
+            margin: 15px 0px 20px 40px;
+            margin-bottom: 20px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .authorImage {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .authorName,
+        .publicationName {
+            margin: 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .publicationName {
+            font-weight: 600;
+            color: #777;
+            margin-left: 10px;
+        }
+
+        .articleTitle {
+            font-size: 12px;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .full-list {
+            margin-left: 40px;
+        }
+
+        .full-list>a {
+            color: green;
+            text-decoration: none;
+        }
+
+        .full-list>a:hover {
+            color: black;
+        }
+
+        #recommend-topics {
+            /* border: 1px solid red; */
+            max-width: 60%;
+            margin-left: 40px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .recommend-heading {
+            margin: 30px 0 0 40px;
+            font-size: 18px;
+        }
+
+        #recommend-topics>.btn-1 {
+            /* border: 1px solid red; */
+            padding: 10px 20px;
+            margin-left: 10px;
+            margin-top: 10px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .notification-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .notification {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .notification img {
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .notification-content {
+    flex: 1;
+  }
+  
+  .notification-title {
+    font-size: 18px;
+    color: #007BFF;
+    margin: 0;
+  }
+  
+  .notification-meta {
+    color: #555;
+    font-size: 14px;
+  }
+  
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="con">
+            <nav class="navbar-main">
+                <div class="nav-left">
+                    <a href="index.html" aria-label="link"><img src="infohub final logo.jpg" alt="" /></a>
+
+                    <input class="search-input" type="search" placeholder="Search" aria-label="Search" />
+                    <span class="material-symbols-outlined search-1"> search </span>
+                </div>
+                <div class="nav-right">
+                    <a href="#" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
+                        <div>Write</div>
+                    </a>
+                    <a href="#" class="icon-1" aria-label="link"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="gray">
+                            <path
+                                d="M158.37-199.37v-86h72.13v-262.87q0-86.11 51.57-153.6 51.56-67.49 134.43-88.7v-24.09q0-26.25 18.49-44.63 18.48-18.37 44.89-18.37t45.02 18.37q18.6 18.38 18.6 44.63v24.09q83.11 21.21 134.55 88.58 51.45 67.37 51.45 153.72v262.87h72.13v86H158.37ZM480.24-81.24q-33.68 0-57.28-23.52-23.59-23.52-23.59-57.11h161.5q0 33.7-23.52 57.16-23.53 23.47-57.11 23.47Z" />
+                        </svg></a>
+                    <div class="dropdown">
+                        <button onclick="toggleDropdown()" class="dropbtn" aria-label="Aria Name"></button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#" class="profile">
+                                <div>
+                                    <span class="material-symbols-outlined"> person </span>
+                                </div>
+                                <div>Profile</div>
+                            </a>
+                            <a href="library.html" class="profile">
+                                <div>
+                                    <span class="material-symbols-outlined"> bookmarks </span>
+                                </div>
+                                <div>Library</div>
+                            </a>
+                            <a href="#" class="profile">
+                                <div>
+                                    <span class="material-symbols-outlined">
+                                        auto_stories
+                                    </span>
+                                </div>
+                                <div>Stories</div>
+                            </a>
+                            <a href="#" class="profile">
+                                <div>
+                                    <span class="material-symbols-outlined">
+                                        signal_cellular_alt
+                                    </span>
+                                </div>
+                                <div>Stats</div>
+                            </a>
+                            <hr />
+                            <a href="">Settings</a>
+                            <a href="">Refine recommendations</a>
+                            <a href="">Manage publications</a>
+                            <a href="">Help</a>
+                            <hr />
+                            <a href="">Become a Medium member</a>
+                            <a href="">Create a Mastodon account</a>
+                            <a href="">Apply for author verification</a>
+                            <a href="">Apply to the Partner Program</a>
+                            <a href="">Gift a membership</a>
+                            <hr />
+                            <a href="">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <hr>
+    <section>
+        <div class="con">
+            <div class="lib-sec">
+
+                <div class="section-left">
+                    <div class="library-heading">
+                        <h1>Notifications</h1>
+                        
+
+                    </div>
+                    <div class="library-content">
+                        <ul class="navigation" id="random-notification">
+                            <li onclick="showContent('your-lists')" role="button" aria-controls="your-lists">All
+                            </li>
+                            <li onclick="showContent('saved-lists')" role="button" aria-controls="saved-lists">Responses</li>
+                        </ul>
+                        <hr class="your-lists-line">
+                    </div>
+
+                    <div id="content">
+                        <!-- <div id="your-lists" class="content-section" aria-live="polite">
+                            <h2>All</h2>
+                            <p>Content for Your Lists.</p>
+                        </div>
+                        <div id="saved-lists" class="content-section" aria-live="polite">
+                            <h2>Responses</h2>
+                            <p>Content for Saved Lists.</p>
+                        </div> -->
+                        <div class="notification-container">
+                            <h1>Latest Notifications</h1>
+                            <div id="notifications">
+                              <!-- Notifications will be inserted here by JavaScript -->
+                            </div>
+                          </div>
+                    </div>
+
+                </div>
+                <div class="section-right">
+                    <div id="staff-picks">
+                        <h4>Staff Picks</h4>
+                    </div>
+                    <div class="full-list">
+                        <a href="">See the full list</a>
+                    </div>
+                    <h4 class="recommend-heading">Recommended topics</h4>
+                    <div id="recommend-topics"></div>
+                    <div class="full-list">
+                        <a href="">See more topics</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+<!-- <script src="notification.js"></script> -->
+ <script>
+    function toggleDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
+
+
+function showContent(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show the selected section
+    const activeSection = document.getElementById(sectionId);
+    activeSection.classList.add('active');
+
+    // Remove active class from all list items
+    const listItems = document.querySelectorAll('.navigation li');
+    listItems.forEach(item => {
+        item.classList.remove('active');
+    });
+
+    // Add active class to the clicked list item
+    // const activeListItem = document.querySelector(.navigation li[onclick="showContent('${sectionId}')"]);
+    const activeListItem = document.querySelector(`.navigation li[onclick="showContent('${sectionId}')"]`);
+    activeListItem.classList.add('active');
+}
+
+// Show the first section by default
+document.addEventListener('DOMContentLoaded', () => {
+    showContent('your-lists');
+});
+
+// staff -------------------------------------
+
+const recommended_topic=["React","Web development","Entrepreneurship", "Information","Javascript","Work","Database","Data analytics"]
+let staff_picks = document.querySelector("#staff-picks");
+let recommend_topic = document.querySelector("#recommend-topics");
+async function fetchData() {
+    let res = await fetch('https://tesla-techies-038-2.onrender.com/articles');
+    let data = await res.json();
+    return data;
+}
+
+async function showData() {
+    let newData = await fetchData();
+    displayData(newData);
+
+    
+        getdata(recommended_topic);
+}
+
+function displayData(newData) {
+    let clapsData= newData.filter(ele=>
+        ele.claps <= 600
+    )
+    console.log(clapsData)
+    let data2 = clapsData.slice(4, 7);
+    data2.forEach((ele) => {
+        let card = document.createElement("div");
+        card.className = "card";
+
+        let authorInfo = document.createElement("div");
+        authorInfo.className = "author-info";
+
+        let authorImage = document.createElement("img");
+        // authorImage.src = ${ele.authorImage};
+        authorImage.src = `${ele.authorImage}`;
+
+        authorImage.className = "authorImage";
+
+        let authorName = document.createElement("p");
+        authorName.className = "authorName";
+        authorName.innerHTML = `${ele.authorName}`;
+
+        let publicationName = document.createElement("p");
+        publicationName.className = "publicationName";
+        publicationName.innerHTML = `in ${ele.publicationName}`;
+
+        let articleDetails = document.createElement("div");
+        articleDetails.className = "articleDetails";
+
+        let articleTitle = document.createElement("p");
+        articleTitle.className = "articleTitle";
+        articleTitle.innerHTML = `<h2>${ele.articleTitle}</h2>`;
+
+        
+
+        authorInfo.append(authorImage, authorName, publicationName);
+        articleDetails.append(articleTitle);
+
+        card.append(authorInfo, articleDetails);
+
+        staff_picks.append(card);  
+    });
+}
+function getdata(recommended_topic){
+    
+    recommended_topic.forEach((ele) =>{
+        
+        let btn1 = document.createElement("button")
+        btn1.className="btn-1"
+        btn1.textContent= `${ele}`;
+
+        
+        recommend_topic.append(btn1)
+    })
+}
+
+showData();
+
+// Article data
+const articles = [
+    {
+      "id": 1,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3wDZLZ6BecUn5rtnNEkkrApwxwhffoGGZlA&s",
+      "authorName": "Jane Wilde",
+      "publicationName": "Tech Insights",
+      "publicationDate": "06-01-2024",
+      "articleTitle": "The Future of AI in Healthcare",
+      "content": "The future of AI in healthcare holds immense potential for transforming both diagnostics and treatment...",
+      "articleImage": "https://picsum.photos/id/1/250/150",
+      "articleType": "Technology",
+      "claps": 108,
+      "commentCounts": 76
+    },
+    {
+      "id": 2,
+      "authorImage": "https://www.davidchang.ca/wp-content/uploads/2020/09/David-Chang-Photography-Headshots-Toronto-61.jpg",
+      "authorName": "Dek Sem",
+      "publicationName": "Tech World",
+      "publicationDate": "06-02-2024",
+      "articleTitle": "Advancements in Web Development",
+      "content": "Web development has seen significant advancements in recent years, driven by emerging technologies...",
+      "articleImage": "https://picsum.photos/id/2/250/150",
+      "articleType": "Web Development",
+      "claps": 210,
+      "commentCounts": 62
+    },
+    {
+      "id": 3,
+      "authorImage": "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?cs=srgb&dl=pexels-linkedin-2182970.jpg&fm=jpg",
+      "authorName": "Farah Sen",
+      "publicationName": "Innovation Daily",
+      "publicationDate": "06-03-2024",
+      "articleTitle": "React's Role in Modern Web Applications",
+      "content": "React has become a cornerstone of modern web applications, offering a robust framework for building dynamic...",
+      "articleImage": "https://picsum.photos/id/3/250/150",
+      "articleType": "React",
+      "claps": 122,
+      "commentCounts": 80
+    },
+    {
+      "id": 4,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s",
+      "authorName": "Vone Jen",
+      "publicationName": "Tech Revolution",
+      "publicationDate": "06-04-2024",
+      "articleTitle": "The Rise of Remote Work",
+      "content": "Remote work has rapidly evolved from a niche practice to a mainstream trend, transforming how companies operate and employees work. Here’s an in-depth look at the rise of remote work: Flexibility and Work-Life Balance: Remote work offers employees greater flexibility to manage their work and personal lives. This balance leads to increased job satisfaction and productivity as employees can work in environments that suit their preferences. Cost Savings: Both employees and employers benefit from cost savings associated with remote work. Employees save on commuting expenses and work attire, while employers can reduce overhead costs by downsizing office spaces. Talent Pool Expansion: Remote work enables companies to tap into a global talent pool, hiring the best talent regardless of geographical location. This diversity brings fresh perspectives and innovation to organizations. Technology and Tools: The proliferation of communication and collaboration tools like Zoom, Slack, and Microsoft Teams has made remote work feasible and efficient. Cloud-based platforms and project management tools ensure seamless coordination and productivity. Challenges and Solutions: Remote work also presents challenges such as isolation, communication barriers, and maintaining company culture. Organizations are addressing these issues through virtual team-building activities, regular check-ins, and fostering an inclusive remote work environment. Hybrid Work Model: The hybrid work model, combining remote and in-office work, is gaining popularity. This model offers the benefits of remote work while maintaining the advantages of face-to-face collaboration. Future of Remote Work: The future of remote work looks promising, with more companies adopting flexible work arrangements. As technology continues to advance, remote work is likely to become even more integrated into the corporate landscape. Remote work is reshaping the future of work, offering flexibility, cost savings, and access to a broader talent pool.",
+      "articleImage": "https://picsum.photos/id/4/250/150",
+      "articleType": "Work",
+      "claps": 690,
+      "commentCounts": 77
+    },
+    {
+      "id": 5,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkZUUzPWexwYFKYLr3eR81HIW6UGWZcAKoSQ&s",
+      "authorName": "Rona Sed",
+      "publicationName": "Startup Stories",
+      "publicationDate": "06-05-2024",
+      "articleTitle": "The Entrepreneurial Mindset",
+      "content": "The entrepreneurial mindset is crucial for success in the business world, driving innovation and resilience. Here's an in-depth look at the key aspects of this mindset: Embracing Failure: Entrepreneurs view failure as a learning opportunity rather than a setback. This perspective helps them take calculated risks and innovate without the fear of making mistakes. Adaptability: The ability to adapt to changing circumstances is vital for entrepreneurs. They stay agile, pivoting their strategies and business models to meet evolving market demands. Vision and Passion: Successful entrepreneurs have a clear vision and a passion for their ventures. This passion fuels their perseverance and motivates them to overcome obstacles. Problem-Solving: Entrepreneurs are natural problem-solvers, constantly seeking solutions to challenges. They identify gaps in the market and develop products or services to address those needs. Resilience: Building a business involves facing numerous challenges and setbacks. Resilience helps entrepreneurs stay focused and committed, even in the face of adversity. Networking: Entrepreneurs understand the importance of building a strong network. They connect with mentors, investors, and other entrepreneurs to gain insights, support, and opportunities. Continuous Learning: The entrepreneurial mindset values continuous learning and self-improvement. Entrepreneurs stay informed about industry trends, seek feedback, and invest in their personal and professional development. Customer Focus: Successful entrepreneurs prioritize their customers' needs and feedback. They develop products and services that provide value and build strong customer relationships. Time Management: Effective time management is essential for entrepreneurs to balance multiple responsibilities. They prioritize tasks, delegate when necessary, and focus on activities that drive growth. The entrepreneurial mindset is about embracing challenges, staying adaptable, and continually seeking opportunities for growth and innovation.",
+      "articleImage": "https://picsum.photos/id/5/250/150",
+      "articleType": "Entrepreneurship",
+      "claps": 477,
+      "commentCounts": 71
+    },
+    {
+      "id": 6,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQzqpqlCggzfyOzZjHe6hUdz44tKUPZESpkQ&s",
+      "authorName": "Gems Fond",
+      "publicationName": "Code Master",
+      "publicationDate": "06-06-2024",
+      "articleTitle": "The Power of Open Source",
+      "content": "Open source software has revolutionized the tech industry, offering numerous benefits to developers and organizations. Here’s an in-depth look at the power of open source: Collaboration and Community: Open source projects foster collaboration among developers worldwide. Communities contribute to the development, improvement, and maintenance of software, driving innovation and quality. Cost Savings: Open source software is typically free to use, reducing the cost of software development and deployment. Organizations can allocate resources to other critical areas, enhancing overall efficiency. Transparency and Security: The transparency of open source code allows for thorough inspection and auditing. This visibility helps identify and address security vulnerabilities quickly, leading to more secure software. Flexibility and Customization: Open source software provides the flexibility to modify and customize code to meet specific needs. Organizations can tailor software solutions to their requirements, enhancing functionality and performance. Rapid Innovation: The collaborative nature of open source accelerates innovation. Developers can build on existing projects, share ideas, and introduce new features at a faster pace. Vendor Independence: Using open source software reduces dependency on a single vendor. Organizations have the freedom to choose and switch between solutions without being locked into proprietary systems. Skill Development: Contributing to open source projects helps developers improve their skills and gain valuable experience. It provides opportunities for learning, networking, and showcasing their expertise. Interoperability: Open source promotes interoperability and standards compliance. This ensures that different software systems can work together seamlessly, enhancing integration and functionality. Sustainability: Many open source projects are sustained by a global community of contributors. This collective effort ensures the longevity and continuous improvement of software. Open source software is a powerful force in the tech industry, driving collaboration, innovation, and cost savings.",
+      "articleImage": "https://picsum.photos/id/6/250/150",
+      "articleType": "Coding",
+      "claps": 548,
+      "commentCounts": 97
+    },
+    {
+      "id": 7,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGmt7mgLLJbU_An415Sur0-Iq8kRKQzzAwCw&s",
+      "authorName": "Drake Gen",
+      "publicationName": "Web Weekly",
+      "publicationDate": "06-07-2024",
+      "articleTitle": "Building Scalable Web Applications",
+      "content": "Building scalable web applications is crucial for handling growing user bases and ensuring a smooth user experience. Here’s an in-depth look at the strategies for achieving scalability: Load Balancing: Load balancing distributes incoming traffic across multiple servers, ensuring no single server is overwhelmed. This improves performance and reliability, especially during peak usage times. Caching: Implementing caching mechanisms, such as in-memory caches and content delivery networks (CDNs), reduces the load on servers and speeds up response times. Cached data is served quickly, improving user experience. Database Optimization: Optimizing database performance is key to scalability. This involves indexing, query optimization, and using distributed databases. Techniques like sharding and replication help manage large datasets efficiently. Asynchronous Processing: Asynchronous processing allows tasks to be handled in the background, freeing up resources for immediate user requests. Technologies like message queues and task schedulers facilitate asynchronous operations. Microservices Architecture: Breaking down a monolithic application into microservices improves scalability. Each microservice handles a specific functionality and can be scaled independently, enhancing flexibility and fault tolerance. Auto-scaling: Auto-scaling automatically adjusts the number of servers based on traffic demands. Cloud platforms like AWS, Azure, and Google Cloud provide auto-scaling features that ensure optimal resource utilization. Performance Monitoring: Continuous monitoring of application performance helps identify bottlenecks and areas for improvement. Tools like New Relic, Datadog, and Grafana provide insights into system health and performance metrics. Code Efficiency: Writing efficient code that minimizes resource consumption is essential for scalability. Code reviews, performance testing, and refactoring help maintain high performance standards. Security Considerations: Scalability should not compromise security. Implementing robust security measures, such as encryption, authentication, and access controls, ensures the application remains secure as it scales. Building scalable web applications involves a combination of architectural strategies, performance optimization, and continuous monitoring to ensure smooth operation under varying loads.",
+      "articleImage": "https://picsum.photos/id/7/250/150",
+      "articleType": "Web Development",
+      "claps": 525,
+      "commentCounts": 81
+    },
+    {
+      "id": 8,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqSHLPBTh2ZGuUGdL0-SMusi-DYLRutF53g&s",
+      "authorName": "Sam Welle",
+      "publicationName": "React Journal",
+      "publicationDate": "06-08-2024",
+      "articleTitle": "State Management in React",
+      "content": "State management is a critical aspect of React applications, ensuring data consistency and efficient rendering. Here’s an in-depth look at state management in React: useState Hook: The useState hook is the fundamental way to manage state in functional components. It allows developers to add state variables and update them within the component. useReducer Hook: The useReducer hook is useful for managing complex state logic. It provides an alternative to useState, especially when dealing with multiple related state variables or complex state transitions. Context API: The Context API enables sharing state across the entire application or specific parts of it without prop drilling. It simplifies state management for global state, such as user authentication and theme settings. Redux: Redux is a popular state management library for larger applications. It provides a centralized store for application state and uses actions and reducers to handle state changes predictably. Recoil: Recoil is a state management library developed by Facebook for managing shared state in React applications. It offers a simpler API and better performance for certain use cases compared to Redux. MobX: MobX is another state management library that uses reactive programming principles. It automatically tracks state dependencies and re-renders components when the state changes. Zustand: Zustand is a lightweight state management library that provides a simple and flexible API. It allows for easy state management without the boilerplate code often associated with Redux. Combining Approaches: In some cases, combining multiple state management approaches can be beneficial. For example, using useState for local component state and Redux or Context API for global state. Best Practices: Best practices for state management include keeping state as minimal as possible, using derived state to avoid duplication, and avoiding unnecessary re-renders by memoizing components. State management is a crucial aspect of React development, providing the tools and patterns needed to maintain application state effectively.",
+      "articleImage": "https://picsum.photos/id/8/250/150",
+      "articleType": "React"
+    },
+    {
+      "id": 9,
+      "authorImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSlYVL1Z7yTyqxvmXpKLH5Ye8QrRuNC2sx2A&s",
+      "authorName": "Den Wen",
+      "publicationName": "Entrepreneur Today",
+      "publicationDate": "06-09-2024",
+      "articleTitle": "Scaling Your Startup",
+      "content": "Scaling a startup is a critical phase that involves expanding operations while maintaining efficiency and quality. Here’s an in-depth look at strategies for successfully scaling your startup: Building a Strong Team: A talented and dedicated team is essential for scaling. Focus on hiring individuals who align with your company’s vision and culture, and invest in their growth and development. Streamlining Operations: Streamlining operations through process optimization and automation helps improve efficiency. Identify bottlenecks and implement solutions to enhance productivity and reduce costs. Leveraging Technology: Technology plays a crucial role in scaling. Utilize cloud computing, data analytics, and automation tools to manage and analyze data, streamline workflows, and enhance decision-making. Expanding Market Reach: Expanding into new markets can drive growth. Conduct thorough market research to identify opportunities and develop strategies for entering new regions or demographics. Securing Funding: Scaling often requires additional capital. Explore various funding options such as venture capital, angel investors, and crowdfunding to secure the necessary resources for growth. Enhancing Customer Experience: Focus on providing exceptional customer service and experiences. Happy customers are more likely to become repeat buyers and brand advocates, driving organic growth. Building Partnerships: Strategic partnerships can accelerate scaling by providing access to new customers, technologies, and resources. Collaborate with complementary businesses to expand your reach and capabilities. Maintaining Company Culture: As your startup grows, maintaining a strong company culture is vital. Foster an inclusive and positive work environment to retain top talent and keep employees motivated. Monitoring Performance: Continuously monitor key performance indicators (KPIs) to track progress and identify areas for improvement. Use data-driven insights to make informed decisions and adjust strategies as needed. Risk Management: Scaling involves risks, such as market fluctuations and operational challenges. Develop a risk management plan to mitigate potential threats and ensure business continuity. Scaling a startup requires a strategic approach, leveraging technology, building strong teams, and continuously improving processes to achieve sustainable growth.",
+      "articleImage": "https://picsum.photos/id/9/250/150",
+      "articleType": "Entrepreneurship"
+    },
+    {
+      "id": 10,
+      "authorImage": "https://images.pexels.com/photos/3785104/pexels-photo-3785104.jpeg?cs=srgb&dl=pexels-olly-3785104.jpg&fm=jpg",
+      "authorName": "Swen Dwell",
+      "publicationName": "Tech Trends",
+      "publicationDate": "06-10-2024",
+      "articleTitle": "Innovations in Coding Practices",
+      "content": "Innovations in coding practices are continuously evolving, driving efficiency and quality in software development. Here’s an in-depth look at some of the latest trends and techniques: Test-Driven Development: Test-Driven Development (TDD) involves writing tests before code implementation. This approach ensures code reliability, improves design, and reduces the likelihood of bugs. Continuous Integration and Continuous Deployment: CI/CD practices automate the testing and deployment process, allowing developers to integrate code changes more frequently and deploy updates rapidly. This enhances productivity and reduces downtime. Pair Programming: Pair programming involves two developers working together on the same code. This practice improves code quality, facilitates knowledge sharing, and enhances problem-solving capabilities. Code Reviews: Regular code reviews help maintain code quality and consistency. They provide opportunities for feedback, catch potential issues early, and promote collaborative learning. DevOps Culture: DevOps integrates development and operations teams to improve collaboration, streamline workflows, and accelerate delivery. This cultural shift enhances efficiency and innovation in coding practices. Version Control: Version control systems like Git are essential for managing code changes, collaborating with team members, and maintaining a history of modifications. Branching and merging strategies help organize development efforts. Static Code Analysis: Static code analysis tools automatically review code for potential errors, security vulnerabilities, and adherence to coding standards. They provide immediate feedback, helping developers write cleaner code. Agile Methodologies: Agile methodologies prioritize flexibility, collaboration, and iterative development. Practices like Scrum and Kanban help teams deliver high-quality software incrementally and respond quickly to changing requirements. Coding Standards and Best Practices: Adhering to coding standards and best practices ensures code readability, maintainability, and consistency. Documenting guidelines and conducting regular training help enforce these standards. Leveraging AI in Coding: AI-powered tools assist developers in writing code, detecting bugs, and optimizing performance. These tools enhance productivity and support developers in focusing on complex tasks. Innovations in coding practices are transforming software development, driving higher quality, efficiency, and collaboration.",
+      "articleImage": "https://picsum.photos/id/10/250/150",
+      "articleType": "Coding",
+      "claps": 372,
+      "commentCounts": 53
+    }
+];
+
+// Function to get random articles
+function getRandomArticles(n) {
+  const shuffled = articles.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, n);
+}
+
+// Function to display notifications
+function displayNotifications() {
+  const notificationsContainer = document.getElementById('notifications');
+  const randomArticles = getRandomArticles(3);
+
+  randomArticles.forEach(article => {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    
+    notification.innerHTML = `
+      <img src="${article.authorImage}" alt="${article.authorName}" width="50" height="50">
+      <div class="notification-content">
+        <p class="notification-title">${article.articleTitle}</p>
+        <p class="notification-meta">By ${article.authorName} | ${article.publicationDate}</p>
+        <p class="notification-meta">Claps: ${article.claps} | Comments: ${article.commentCounts}</p>
+      </div>
+    `;
+
+    notificationsContainer.appendChild(notification);
+  });
+}
+
+// Call the function to display notifications
+displayNotifications();
+  
+  
+  
+
+ </script>
+
+</html>
