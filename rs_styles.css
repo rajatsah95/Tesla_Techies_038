@@ -131,3 +131,8 @@ nav{
   position: sticky;
   top: 0px;
 }
+span>a
+{
+    color: black;
+    text-decoration: none;
+}
