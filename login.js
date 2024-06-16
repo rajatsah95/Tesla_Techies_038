@@ -179,7 +179,7 @@ async function checkUserExistance(userCredentials) {
         function skipToLandingPage() {
             // Navigate to Page 3 and replace the current history entry for Page 2 with Page 1
             window.location.href = 'index2.html';
-            history.replaceState(null, '', 'welcome.html'); // Replace Page 2 with Page 1 in history
+            history.replaceState(null, '', 'index.html'); // Replace Page 2 with Page 1 in history
         }
         skipToLandingPage();
         // window.location.href = "landingPage.html";
