@@ -1,6 +1,6 @@
 // Asynchronous function to fetch data from the API
 async function fetchData() {
-    let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
+    let res = await fetch(`https://tesla-techies-038-2.onrender.com/users`, {
         method: "GET",
         headers: {
             "content-type": "application/json"
@@ -106,7 +106,7 @@ async function addNewUser(user) {
         window.alert("User Already Exists. Go to Sign In");
         return false;
     } else {
-        let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
+        let res = await fetch(`https://tesla-techies-038-2.onrender.com/users`, {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -120,7 +120,7 @@ async function addNewUser(user) {
 
 // Function to check if a user with the same username already exists
 async function checkAlreadyHaveAccountOrNot(username) {
-    let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
+    let res = await fetch(`https://tesla-techies-038-2.onrender.com/users`, {
         method: "GET",
         headers: {
             "Content-type": "application/json"
@@ -152,7 +152,7 @@ loginButton.addEventListener("click", () => {
 
 // Function to check user existence and validate login
 async function checkUserExistance(userCredentials) {
-    let res = await fetch(`https://tesla-techies-038-3.onrender.com/users`, {
+    let res = await fetch(`https://tesla-techies-038-2.onrender.com/users`, {
         method: "GET",
         headers: {
             "Content-type": "application/json"
@@ -192,7 +192,7 @@ async function checkUserExistance(userCredentials) {
 
 
 // async function alreadySignedUpOrNot(userCredentials){
-//     let res=await fetch(`https://tesla-techies-038-3.onrender.com/users`,{
+//     let res=await fetch(`https://tesla-techies-038-2.onrender.com/users`,{
 //         method:"GET",
 //         headers:{
 //             "Content-type":"application/json"
@@ -215,7 +215,7 @@ async function checkUserExistance(userCredentials) {
 // let removeUser=document.getElementById("removeUser");
 
 // async function deleteUser(id){
-//     let res=await fetch(`https://tesla-techies-038-3.onrender.com/users/${id}`,{
+//     let res=await fetch(`https://tesla-techies-038-2.onrender.com/users/${id}`,{
 //         method:"DELETE"
 //     })
 //     let data=await res.json();
