@@ -67,7 +67,7 @@ async function showStaffData() {
 
 function displayStaffData(newData) {
     let clapsData= newData.filter(ele=>
-        ele.claps > 110
+        ele.claps >= 110
     )
     console.log(clapsData)
     let data2 = clapsData.slice(4, 7);
@@ -103,8 +103,12 @@ function displayStaffData(newData) {
         articleDetails.append(articleTitle);
 
         card.append(authorInfo, articleDetails);
-
-        staff_picks.append(card);  
+        card.addEventListener('click', ()=>{
+            console.log('card clicked')
+            window.location.href = `details.html?id=${ele.id}`;
+          } )
+        staff_picks.append(card); 
+           
     });
 }
 function getdata(recommended_topic){

@@ -164,7 +164,6 @@
 
     .lib-sec {
       display: flex;
-      position: relative;
     }
 
     .section-left {
@@ -259,10 +258,9 @@
     /* staff  */
     .section-right {
       width: 35%;
-      height: 100vh;
+      height: auto;
       border-left: 0.1px solid rgb(240, 240, 240);
-      position: sticky;
-      top: 0px;
+
       /* border: 1px solid red; */
     }
 
@@ -606,8 +604,8 @@
         <div class="section-left">
           <section id="container-ikbal">
             <section id="tags-bar">
-              <button class="tags" id="suggestion-btn" aria-label="Name">
-                <a href="recommendations.html" aria-label="Name"><i class="fa-solid fa-plus"></i></a>
+              <button class="tags" id="suggestion-btn">
+                <a href="recommendations.html"><i class="fa-solid fa-plus"></i></a>
               </button>
               <button class="tags" id="forYou">For you</button>
               <button class="tags" id="following">Following</button>
@@ -619,7 +617,7 @@
               <button class="tags" id="entrepreneurship">
                 Entrepreneurship
               </button>
-              <button class="tags" id="nextIcon" aria-label="Name">
+              <button class="tags" id="nextIcon">
                 <i class="fa-solid fa-chevron-right"></i>
               </button>
             </section>

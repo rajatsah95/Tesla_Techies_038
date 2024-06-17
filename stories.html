@@ -472,6 +472,22 @@
         </div>
     </section>
 </body>
+<script>
+     let articlesApi = 'https://tesla-techies-038-2.onrender.com/articles';
+   let userId = localStorage.getItem("loggedUserId") 
+  if(!userId){
+    userId = 1;
+  }
+
+  async function fetchSavedArticles(){
+       let res = await fetch(`https://tesla-techies-038-2.onrender.com/savedArticles/${id}`)
+       let data = await res.json()
+       console.log(data.bookmarks)
+       data.bookmarks.forEach(id=>{
+          showBookmarks(id)
+       })
+  }
+</script>
 <!-- <script src="profileDropdown.js"></script> -->
 
 </html>

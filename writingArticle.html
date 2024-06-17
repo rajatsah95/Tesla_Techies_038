@@ -127,7 +127,12 @@
 </body>
 </html>
 <script>
-      const userId = 1; // Replace with actual user ID
+     let savedArticlesApi = 'https://tesla-techies-038-2.onrender.com/savedArticles';
+   let userId = localStorage.getItem("loggedUserId") 
+  if(!userId){
+    userId = 1;
+  }
+    //   const userId = 1; // Replace with actual user ID
 
 let publishBtn = document.querySelector(".publish-btn");
 
@@ -168,6 +173,16 @@ async function publish() {
     } catch (error) {
         console.error("Error updating user data:", error);
     }
+// /////add savedArticleId to writenArticles array//////////////////////////
+
+
+
+
+
+
+
+// /////add savedArticleId to writenArticles array ending //////////////////////////
+
 }
 
 </script>
