@@ -360,22 +360,27 @@ body {
   
   .notification img {
     border-radius: 50%;
+    height: 60px;
+    width: 60px;
     margin-right: 15px;
   }
   
   .notification-content {
     flex: 1;
+    
   }
   
   .notification-title {
     font-size: 18px;
     color: #007BFF;
     margin: 0;
+    line-height: 40px;
   }
   
   .notification-meta {
     color: #555;
     font-size: 14px;
+    line-height: 20px;
   }
   
     </style>
@@ -386,13 +391,13 @@ body {
         <div class="con">
             <nav class="navbar-main">
                 <div class="nav-left">
-                    <a href="index.html" aria-label="link"><img src="infohub final logo.jpg" alt="" /></a>
+                    <a href="index2.html" aria-label="link"><img src="assets/newLogoInfoHub.png" alt="" /></a>
 
                     <input class="search-input" type="search" placeholder="Search" aria-label="Search" />
                     <span class="material-symbols-outlined search-1"> search </span>
                 </div>
                 <div class="nav-right">
-                    <a href="#" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
+                    <a href="writingArticle.html" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
                         <div>Write</div>
                     </a>
                     <a href="#" class="icon-1" aria-label="link"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
@@ -463,9 +468,9 @@ body {
                     </div>
                     <div class="library-content">
                         <ul class="navigation" id="random-notification">
-                            <li onclick="showContent('your-lists')" role="button" aria-controls="your-lists">All
+                            <li onclick="showContent('your-lists')" role="button" aria-controls="your-lists" aria-hidden="true">All
                             </li>
-                            <li onclick="showContent('saved-lists')" role="button" aria-controls="saved-lists">Responses</li>
+                            <li onclick="showContent('saved-lists')" role="button" aria-controls="saved-lists" aria-hidden="true">Responses</li>
                         </ul>
                         <hr class="your-lists-line">
                     </div>
