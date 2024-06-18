@@ -1,14 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #555;
+        }
+
+        .search-results {
+            margin-top: 20px;
+        }
+
+        .search-result-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-result-item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-result-item a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .search-result-item a:hover {
+            text-decoration: underline;
+        }
+
+        .search-result-item .details {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .search-result-item .details p {
+            margin: 5px 0;
+        }
+
+        .return-home {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .return-home a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .return-home a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <div class="container">
+        <h1>Search Results</h1>
+        <div class="search-results"></div>
+        <div class="return-home">
+            <a href="index2.html">Return to Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('query');
+            if (query) {
+                fetch(`https://tesla-techies-038-2.onrender.com/articles`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let filteredData = data.filter(article =>
+                            article.articleTitle.toLowerCase().includes(query.toLowerCase()) ||
+                            article.content.toLowerCase().includes(query.toLowerCase())
+                        );
+                        displayResults(filteredData);
+                    });
+            }
+        });
+
+        function displayResults(results) {
+            let resultsContainer = document.querySelector('.search-results');
+            resultsContainer.innerHTML = '';
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+            results.forEach(result => {
+                let resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.innerHTML = `
+                    <a href="details.html?id=${result.id}">${result.articleTitle}</a>
+                    <div class="details">
+                        <p><strong>Author:</strong> ${result.authorName}</p>
+                        <p><strong>Date Published:</strong> ${result.publicationDate}</p>
+                    </div>
+                `;
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+    </script>
 </body>
+
 </html>
-<script>
-    
-</script>

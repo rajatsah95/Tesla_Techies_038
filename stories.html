@@ -349,12 +349,12 @@
         <div class="con">
             <nav class="navbar-main">
                 <div class="nav-left">
-                    <a href="index.html" aria-label="link"><img src="infohub final logo.jpg" alt="" /></a>
+                    <a href="index2.html" aria-label="link"><img src="assets/newLogoInfoHub.png" alt="" /></a>
                     <input class="search-input" type="search" placeholder="Search" aria-label="Search" />
                     <span class="material-symbols-outlined search-1"> search </span>
                 </div>
                 <div class="nav-right">
-                    <a href="#" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
+                    <a href="writingArticle.html" class="write-1"><span class="material-symbols-outlined"> edit_square </span>
                         <div>Write</div>
                     </a>
                     <a href="notification.html" class="icon-1" aria-label="link"><svg xmlns="http://www.w3.org/2000/svg"
@@ -420,7 +420,7 @@
                     <div class="library-heading">
                         <h1>Your Stories</h1>
                         <div class="btn-1">
-                            <a href="write.html"><button type="submit" >Write a story</button></a>
+                            <a href="writingArticle.html"><button type="submit" >Write a story</button></a>
                             <!-- <button type="submit" >Write a story</button> -->
                             <button type="submit" class="import-story">Import a story</button>
                         </div>
@@ -453,6 +453,9 @@
                             <h2>Responses</h2>
                             <p>Content for response.</p>
                         </div>
+                        <div id="my-articles" style="background-color: #f8faf8;">
+
+                        </div>
                     </div>
                 </div>
                 <div class="section-right">
@@ -472,7 +475,88 @@
         </div>
     </section>
 </body>
-<script src="profileDropdown.js"></script>
+<script>
+   document.addEventListener('DOMContentLoaded', async () => {
+    console.log("THE START");
+    
+    let articlesApi = 'https://tesla-techies-038-2.onrender.com/articles';
+    let userId = localStorage.getItem("loggedUserId") || 1; // Default to 1 if not found
+    console.log(userId);
+
+    const userEndpoint = `https://tesla-techies-038-2.onrender.com/users/${userId}`;
+    
+    async function checkUser() {
+        try {
+            let res = await fetch(userEndpoint);
+            if (!res.ok) throw new Error("Network response was not ok");
+            let userData = await res.json();
+            if (!userData){
+                console.log("Logged User Not Found, so user set to", userId);
+                userId  = 1;
+            }
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            return null;
+        }
+    }
+
+    await checkUser();
+
+    async function fetchTheUser(endpoint) {
+        console.log("Fetching user");
+        try {
+            let res = await fetch(endpoint);
+            if (!res.ok) throw new Error("Network response was not ok");
+            let userData = await res.json();
+            return userData.writtenArticles;
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            return null;
+        }
+    }
+
+    let writtenArticlesArray = await fetchTheUser(userEndpoint);
+    console.log(writtenArticlesArray);
+
+    if (writtenArticlesArray) {
+        writtenArticlesArray.forEach(id => {
+            fetchSavedArticles(id);
+        });
+    }
+
+    async function fetchSavedArticles(id) {
+        try {
+            let res = await fetch(`https://tesla-techies-038-2.onrender.com/savedArticles/${id}`);
+            if (!res.ok) throw new Error("Network response was not ok");
+            let data = await res.json();
+            console.log(data);
+            if (data) {
+                showArticle(data);
+            }
+        } catch (error) {
+            console.error("Error fetching saved articles:", error);
+        }
+    }
+
+    function showArticle(data) {
+        console.log("Inside Showing article data function");
+        let myArticles = document.querySelector("#my-articles");
+        let myCard = document.createElement("div");
+        let myTitle = document.createElement("h3");
+        myTitle.innerHTML = data.title;
+        let myContent = document.createElement("p");
+        myContent.innerHTML = data.content;
+        let myImage = document.createElement("img");
+        myImage.src = data.url;
+        myCard.append(myTitle, myContent, myImage);
+        myArticles.append(myCard);
+    }
+
+    console.log("THE END");
+});
+
+</script>
+<!-- <script src="profileDropdown.js"></script> -->
 
 </html>
 <script src="rahul.js"></script>

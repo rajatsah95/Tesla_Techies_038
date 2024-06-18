@@ -15,6 +15,14 @@
       "email": "saifuddin2k17@gmail.com",
       "mobile": "9851902688",
       "id": 2
+    },
+    {
+      "name": "Saifuddin Dhali",
+      "username": "admin",
+      "password": "admin",
+      "email": "saifuddin2k17@gmail.com",
+      "mobile": "9851902688",
+      "id": 3
     }
   ],
   "savedArticles": [

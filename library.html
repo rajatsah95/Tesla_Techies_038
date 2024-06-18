@@ -447,6 +447,9 @@
                             <p>Content for Reading History.</p>
                         </div>
                     </div>
+                    <section id="bookmarks-container">
+
+                    </section>
                 </div>
                 <div class="section-right">
                     <div id="staff-picks">
@@ -465,6 +468,160 @@
         </div>
     </section>
 </body>
+<script>
+    let articlesApi = 'https://tesla-techies-038-2.onrender.com/articles';
+   let userId = localStorage.getItem("loggedUserId") 
+  if(!userId){
+    userId = 1;
+  }
+
+  async function fetchBookmarks(){
+       let res = await fetch(`https://tesla-techies-038-2.onrender.com/users/${userId}`)
+       let data = await res.json()
+       console.log(data.bookmarks)
+       data.bookmarks.forEach(id=>{
+          showBookmarks(id)
+       })
+  }
+  fetchBookmarks()
+  
+    async function fetchArticle(bookmarkedArticleId) {
+    try {
+      let response = await fetch(`${articlesApi}/${bookmarkedArticleId}`);
+      if (!response.ok) throw new Error("Network response was not ok");
+      let article = await response.json();
+      return article;
+    } catch (error) {
+      console.error("Error fetching article:", error);
+      return null;
+    }
+  }
+  let bcontainer = document.querySelector("#bookmarks-container")
+
+  async function showBookmarks(id){
+    console.log("inside showbookmarks")
+      let ele = await fetchArticle(id) 
+      let card1 = document.createElement("div");
+    card1.className = "card1";
+
+    let authorImage1 = document.createElement("img");
+    if(ele.authorImage){
+        authorImage1.src = `${ele.authorImage}`;
+    }else{
+         authorImage1.src = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJA-U9AkzUF1iqBCQFhqe9pXjZr3uhajD0Zw&s`;
+    }
+   
+    authorImage1.className = "authorImage1";
+
+    let authorName = document.createElement("p");
+    authorName.innerHTML = `${ele.authorName}`;
+
+    let publicationName = document.createElement("p");
+    publicationName.innerHTML = ` in  ${ele.publicationName}`;
+    publicationName.className = "publicationNameLeft"
+
+    let articleDetails1 = document.createElement("p");
+    articleDetails1.className = "articleDetails1";
+    articleDetails1.append(authorImage1, authorName, publicationName);
+
+    articleDetails1.addEventListener('click', ()=>{
+      window.location.href = `details.html?id=${ele.id}`;
+    } )
+
+    let articleTitle = document.createElement("h2");
+    articleTitle.innerHTML = `${ele.articleTitle}`;
+    articleTitle.addEventListener('click', ()=>{
+      window.location.href = `details.html?id=${ele.id}`;
+    } )
+
+    let content = document.createElement("p");
+    content.innerHTML = `${ele.content.substring(0, 115)}...`;
+
+    content.addEventListener('click', ()=>{
+      window.location.href = `details.html?id=${ele.id}`;
+    } )
+
+    let interactionBar = document.createElement("div");
+    interactionBar.id = "interactionBar";
+
+    let claps = document.createElement("button");
+    claps.className = "claps"
+    claps.dataset.likedArticleId = ele.id; 
+    clapFlag = true
+    if(ele.claps){
+      claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${ele.claps}`
+      claps.addEventListener('click', async (event)=>{
+        if(clapFlag){
+          let newClaps = await likeArticle(event)
+          console.log(newClaps)
+            claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${newClaps}`;
+        }
+      })
+    }else{
+      let staticClap = 200+ele.id
+      claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${staticClap}`;
+      claps.addEventListener('click', async ()=>{
+        staticClap++
+        claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${staticClap}`;
+      })
+    }
+    let commentCounts = document.createElement("p");
+    if(ele.claps){
+      commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i> ${ele.commentCounts}`;
+    }else{
+      commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i> ${50+ele.id}`;
+    }
+
+    let barleft = document.createElement("p");
+    barleft.className = "barleft";
+    let publicationDate = document.createElement("p");
+    publicationDate.innerHTML = `${ele.publicationDate}`;
+
+    barleft.append(publicationDate, claps, commentCounts);
+
+    let barright = document.createElement("p");
+    barright.className = "barright";
+    let showLessBtn = document.createElement("button");
+    showLessBtn.innerHTML = `<i class="fa-solid fa-circle-minus"></i>`;
+    let saveBtn = document.createElement("button");
+    saveBtn.innerHTML = `<i class="fa-regular fa-bookmark"></i>`;
+      saveBtn.className = "save-button"
+      saveBtn.dataset.articleId = ele.id; 
+      
+
+    let moreBtn = document.createElement("button");
+    moreBtn.innerHTML = `More`;
+
+    barright.append(showLessBtn, saveBtn, moreBtn);
+    interactionBar.append(barleft, barright);
+
+    let articleType = document.createElement("button");
+    articleType.innerHTML = `${ele.articleType}`;
+
+    let contentBox = document.createElement("div");
+    contentBox.className = "contentBox";
+    contentBox.append(articleDetails1, articleTitle, content, interactionBar);
+   
+
+    let articleImage = document.createElement("img");
+    articleImage.src = `${ele.articleImage}`;
+    articleImage.className = "articleImage";
+    let articleImageDiv = document.createElement("div");
+    articleImageDiv.append(articleImage);
+    articleImageDiv.addEventListener('click', ()=>{
+      window.location.href = `details.html?id=${ele.id}`;
+    } )
+
+    let hr = document.createElement("hr");
+    card1.append(contentBox, articleImageDiv);
+    bcontainer.append(card1, hr);  
+  }
+     
+
+
+
+    
+</script>
 <script src="profileDropdown.js"></script>
 
 </html>

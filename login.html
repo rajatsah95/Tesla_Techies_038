@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup and Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="./login.css">
 </head>
 <body>
     <!-- <button id="removeUser">remove user</button> -->
@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Create Password</label>
-                        <input type="password" id="signupPassword" required>
+                        <input type="password" id="signupPassword" required minlength="4" maxlength="12">
                     </div>
                     <button type="button" id="signupButton" class="button">Sign Up</button>
                     <p class="form-text">Already signed up? <a href="#" id="showLoginForm">Login</a></p>
@@ -54,6 +54,6 @@
             </div>
         </div>
     </div>
-    <script src="login.js"></script>
+    <script src="./login.js"></script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+let userId = localStorage.getItem("loggedUserId") 
+if(!userId){
+  userId = 1;
+}
 let container_ikbal = document.querySelector("#container-ikbal");
 let articles = document.querySelector("#articles");
 let articleTypeArray = ["Work", "React", "Web Development", "Entrepreneurship"];
@@ -41,48 +45,88 @@ async function showData() {
 function displayData(newData) {
   console.log("Displaying data:", newData);
   newData.forEach((ele) => {
-    let card = document.createElement("div");
-    card.className = "card";
+    let card1 = document.createElement("div");
+    card1.className = "card1";
 
-    let authorImage = document.createElement("img");
-    authorImage.src = `${ele.authorImage}`;
-    authorImage.className = "authorImage";
+    let authorImage1 = document.createElement("img");
+    authorImage1.src = `${ele.authorImage}`;
+    authorImage1.className = "authorImage1";
 
     let authorName = document.createElement("p");
     authorName.innerHTML = `${ele.authorName}`;
 
     let publicationName = document.createElement("p");
     publicationName.innerHTML = ` in  ${ele.publicationName}`;
+    publicationName.className = "publicationNameLeft"
 
-    let articleDetails = document.createElement("p");
-    articleDetails.className = "articleDetails";
-    articleDetails.append(authorImage, authorName, publicationName);
+    let articleDetails1 = document.createElement("p");
+    articleDetails1.className = "articleDetails1";
+    articleDetails1.append(authorImage1, authorName, publicationName);
 
-    articleDetails.addEventListener('click', ()=>{
-      window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
+    articleDetails1.addEventListener('click', ()=>{
+      window.location.href = `details.html?id=${ele.id}`;
     } )
 
     let articleTitle = document.createElement("h2");
     articleTitle.innerHTML = `${ele.articleTitle}`;
     articleTitle.addEventListener('click', ()=>{
-      window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
+      window.location.href = `details.html?id=${ele.id}`;
     } )
 
     let content = document.createElement("p");
     content.innerHTML = `${ele.content.substring(0, 115)}...`;
 
     content.addEventListener('click', ()=>{
-      window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
+      window.location.href = `details.html?id=${ele.id}`;
     } )
 
     let interactionBar = document.createElement("div");
     interactionBar.id = "interactionBar";
 
-    let claps = document.createElement("p");
-    claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i>${ele.claps}`;
+    let claps = document.createElement("button");
+    claps.className = "claps"
+    claps.dataset.likedArticleId = ele.id; 
+  
+    clapFlag = true
+    if(ele.claps){
+      claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${ele.claps}`;
+
+      claps.addEventListener('click', async (event)=>{
+        if(clapFlag){
+          let newClaps = await likeArticle(event)
+          console.log(newClaps)
+            claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${newClaps}`;
+            // clapFlag = false
+        }
+      })
+
+    }else{
+      let staticClap = 200+ele.id
+      claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${staticClap}`;
+      
+      claps.addEventListener('click', async ()=>{
+        // let newClaps = await likeArticle(event)
+        // console.log(newClaps)
+        staticClap++
+        claps.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${staticClap}`;
+      })
+
+    }
+
+    // clapFlag = true
+    
+
+    
+   
+    
+
 
     let commentCounts = document.createElement("p");
-    commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i>${ele.commentCounts}`;
+    if(ele.claps){
+      commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i> ${ele.commentCounts}`;
+    }else{
+      commentCounts.innerHTML = `<i class="fa-regular fa-comment"></i> ${50+ele.id}`;
+    }
 
     let barleft = document.createElement("p");
     barleft.className = "barleft";
@@ -112,7 +156,7 @@ function displayData(newData) {
 
     let contentBox = document.createElement("div");
     contentBox.className = "contentBox";
-    contentBox.append(articleDetails, articleTitle, content, interactionBar);
+    contentBox.append(articleDetails1, articleTitle, content, interactionBar);
    
 
     let articleImage = document.createElement("img");
@@ -121,23 +165,21 @@ function displayData(newData) {
     let articleImageDiv = document.createElement("div");
     articleImageDiv.append(articleImage);
     articleImageDiv.addEventListener('click', ()=>{
-      window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
+      window.location.href = `details.html?id=${ele.id}`;
     } )
 
     let hr = document.createElement("hr");
-    card.append(contentBox, articleImageDiv);
-    // card.addEventListener('click', ()=>{
+    card1.append(contentBox, articleImageDiv);
+    // card1.addEventListener('click', ()=>{
     //   window.location.href = `details.html?id=${saveBtn.dataset.articleId}`;
-
     // } )
-    articles.append(card, hr);
+    articles.append(card1, hr);
   });
 }
 
 showData();
-////////////////////////////////////////////////////FETCH USER DATA///To bookmark//////////////////////////////////////////////////////
-const userId = 1; // Replace with actual user ID
-  // localStorage.getItem("oggedUser") 
+/////////////////////////////////FETCH USER DATA///To bookmark//////////////////////////////////////////////////////
+ 
   console.log(userId)
 const userEndpoint = `https://tesla-techies-038-2.onrender.com/users/${userId}`;
 
@@ -152,10 +194,9 @@ async function fetchUserData() {
     return null;
   }
 }
-////////////////////////////////////////////////////FETCH USER DATA////////////////////////////////////////////////////////////////////
+////////////////////////////FETCH USER DATA////////////////////////////////////////////////////
 
-
-///////////////////////////////////////////////////bookmark function////////////////////////////////////////////////////////////////////
+//////////////////////////////bookmark function////////////////////////////////////////////////
 async function bookmark(event) {
   console.log("Save Button Clicked");
   let saveBtn = event.target.closest(".save-button");
@@ -188,17 +229,16 @@ async function bookmark(event) {
       },
       body: JSON.stringify({ bookmarks: userData.bookmarks })
     });
-
     if (!res.ok) throw new Error("Network response was not ok");
-
     console.log("Bookmark added successfully");
     alert("Article Bookmarked")
   } catch (error) {
     console.error("Error updating user data:", error);
   }
+  
 }
 
-////////////////////////////////////////////////////bookmark function///////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////bookmark function END///////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////FITER DATA BY TAGS///////////////////////////////////////////////////////
 let tags_bar = document.querySelector("#tags-bar");
@@ -254,4 +294,115 @@ async function handleScroll() {
     fetching = false;
   }
 }
-///////////////////////////////////////////////////////////INFINITE SCROLL/////////////////////////////////////////////////////////////////
+//////////////////////////////////////INFINITE SCROLL/////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////Search Feature Start//////////////////////
+let searchInput = document.querySelector(".search-input")
+console.log(searchInput)
+searchInput.addEventListener('input', function(event) {
+  console.log("Searching")
+  let query = event.target.value.trim();
+  if (query.length > 1) {
+      fetch(`https://tesla-techies-038-2.onrender.com/articles`)
+          .then(response => response.json())
+          .then(data => {
+              let filteredData = data.filter(article => 
+                  article.articleTitle.toLowerCase().includes(query.toLowerCase()) ||
+                  article.content.toLowerCase().includes(query.toLowerCase())
+              );
+              displayResults(filteredData);
+          });
+  } else {
+      document.querySelector('.search-results').innerHTML = '';
+  }
+});
+
+searchInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+      event.preventDefault();
+      let query = event.target.value.trim();
+      if (query) {
+          window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+      }
+  }
+});
+
+function displayResults(results) {
+  let resultsContainer = document.querySelector('.search-results');
+  resultsContainer.innerHTML = '';
+  results.forEach(result => {
+      let resultItem = document.createElement('div');
+      resultItem.className = 'search-result-item';
+      resultItem.innerHTML = `<a href="details.html?id=${result.id}">${result.articleTitle}</a>`;
+      resultsContainer.appendChild(resultItem);
+  });
+}
+
+//////////////////////////Search Feature End//////////////////////
+
+
+//////////////////////////Like Feature Start//////////////////////
+let articlesApi = 'https://tesla-techies-038-2.onrender.com/articles';
+
+async function likeArticle(event) {
+  // console.log(clapsElement)
+  console.log("Like Button Clicked");
+  let likeBtn = event.target.closest(".claps");
+  let likedArticleId = likeBtn.dataset.likedArticleId;
+  console.log("Article ID:", likedArticleId);
+
+  let likedArticle = await fetchArticle(likedArticleId);
+  if (!likedArticle) return; 
+
+  let claps = likedArticle.claps + 1; 
+  // let updatedClaps = claps
+ 
+  let obj = {
+    "claps": claps
+  };
+            
+  //////////PATCHING///////////
+
+  try {
+    let res = await fetch(`${articlesApi}/${likedArticleId}`, { 
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(obj)
+    });
+
+    if (!res.ok) throw new Error("Network response was not ok");
+
+    console.log("Claps Increased");
+    // alert("Article Liked");
+  } catch (error) {
+    console.error("Error updating user data:", error);
+  }
+  /////////////////////////////////////////////
+//   let updatedClaps;
+//   async function getClaps(){
+//     let d= await fetch(`${articlesApi}/${ele.id}`)
+//     let res = await d.json()
+//    updatedClaps= res.claps
+// }
+// getClaps()
+// clapsElement.innerHTML = `<i class="fa-solid fa-hands-clapping"></i> ${updatedClaps}`
+
+   return claps
+}
+
+async function fetchArticle(likedArticleId) {
+  try {
+    let response = await fetch(`${articlesApi}/${likedArticleId}`);
+    if (!response.ok) throw new Error("Network response was not ok");
+    let article = await response.json();
+    return article;
+  } catch (error) {
+    console.error("Error fetching article:", error);
+    return null;
+  }
+}
+//////////////////////////Like Feature End//////////////////////
+
+
