@@ -52,7 +52,7 @@ To run this project locally:
      ## Contributors
   - <a href="https://github.com/rajatsah95">Rajat Kumar Sah</a>
   - <a href="https://github.com/saif520">Saifuddin Dhali</a>
-  - <a href="https://github.com/ikbal-hussain">Iqbal Hussain</a>
+  - <a href="https://github.com/ikbal-hussain">Ikbal Hussain</a>
   - <a href="https://github.com/Rahul8945">Rahul Gupta</a>
   - <a href="https://github.com/ShaikFaheemuddin789">Faheemuddin</a>
 
