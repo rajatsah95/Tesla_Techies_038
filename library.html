@@ -147,6 +147,7 @@
 
         .lib-sec {
             display: flex;
+            position: relative;
         }
 
         .section-left {
@@ -241,8 +242,10 @@
         /* staff  */
         .section-right {
             width: 35%;
-            height: auto;
+            height: 100vh;
             border-left:.1px solid rgb(240, 240, 240) ;
+            position: sticky;
+            top: 0;
            
             /* border: 1px solid red; */
         }
@@ -331,6 +334,163 @@
             border: none;
             cursor: pointer;
         }
+
+
+        /* bookmark------------------------------- */
+        
+
+
+#bookmarks-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    padding-left: 120px;
+    background-color: #f9f9f9;
+}
+
+
+.card1 {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+}
+
+/* .card1 img {
+    width: 100%;
+    height: auto;
+} */
+
+.articleDetails1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;
+
+}
+
+.authorImage1 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.articleDetails1 p {
+    margin: 0;
+}
+
+.articleDetails1 .publicationNameLeft {
+    color: #757575;
+    font-size: 14px;
+}
+
+h2 {
+    /* font-size: 1.25em; */
+    margin: 15px 15px 5px 15px;
+    cursor: pointer;
+    color: #333;
+}
+
+p {
+    margin: 10px 15px;
+    color: #555;
+}
+
+#interactionBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #e0e0e0;
+    background: #fafafa;
+}
+
+.barleft p, .barright button {
+    margin: 0 5px;
+}
+
+.claps, .save-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #757575;
+    font-size: 14px;
+}
+
+.claps:hover, .save-button:hover {
+    color: #333;
+}
+
+.barright button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #757575;
+    font-size: 14px;
+}
+
+.barright button:hover {
+    color: #333;
+}
+
+.barright button i {
+    font-size: 18px;
+}
+
+.articleImage {
+    width: 300px;  
+    height: 235px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 20px 0;
+}
+
+
+.card1 {
+    flex-direction: row;
+}
+
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding-right: 20px;
+}
+
+.articleImageDiv {
+    display: flex;
+    align-items: center;
+}
+
+/* .articleDetails1 {
+    flex-direction: column;
+    align-items: flex-start;
+} */
+
+.barright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.barleft{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
     </style>
 </head>
 
@@ -339,7 +499,7 @@
         <div class="con">
             <nav class="navbar-main">
                 <div class="nav-left">
-                    <a href="index.html" aria-label="link"><img src="assets/newLogoInfoHub.png" alt="" /></a>
+                    <a href="index2.html" aria-label="link"><img src="assets/newLogoInfoHub.png" alt="" /></a>
                     <input class="search-input" type="search" placeholder="Search" aria-label="Search" />
                     <span class="material-symbols-outlined search-1"> search </span>
                 </div>
