@@ -442,16 +442,16 @@
 
                     <div id="content">
                         <div id="your-lists" class="content-section" aria-live="polite">
-                            <h2>Drafts</h2>
-                            <p>Content for Your drafts.</p>
+                            <!-- <h2>Drafts</h2>
+                            <p>Content for Your drafts.</p> -->
                         </div>
                         <div id="saved-lists" class="content-section" aria-live="polite">
-                            <h2>Published</h2>
-                            <p>Content for publish.</p>
+                            <!-- <h2>Published</h2>
+                            <p>Content for publish.</p> -->
                         </div>
                         <div id="highlights" class="content-section" aria-live="polite">
-                            <h2>Responses</h2>
-                            <p>Content for response.</p>
+                            <!-- <h2>Responses</h2>
+                            <p>Content for response.</p> -->
                         </div>
                         <div id="my-articles" style="background-color: #f8faf8;">
 
@@ -542,7 +542,7 @@
         console.log("Inside Showing article data function");
         let myArticles = document.querySelector("#my-articles");
         let myCard = document.createElement("div");
-        let myTitle = document.createElement("h3");
+        let myTitle = document.createElement("h1");
         myTitle.innerHTML = data.title;
         let myContent = document.createElement("p");
         myContent.innerHTML = data.content;
