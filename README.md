@@ -1,22 +1,25 @@
 ## Infohub
 
-Infohub is an  online publishing platform . The platform is an example of social journalism, having a hybrid collection of amateur and professional people and publications, or exclusive blogs or publishers on Infohub, and is regularly regarded as a blog host.
+Infohub is an  online publishing platform. The platform is an example of social journalism, having a hybrid collection of amateur and professional people and publications, or exclusive blogs or publishers on Infohub, and is regularly regarded as a blog host.
 
 ## Project Type
 Frontend | Backend
 
 ## Deployed Link
-<a href="https://infohub123.netlify.app/">Live Demo :
-Infohub</a>
+<h3><a href="https://infohub123.netlify.app/">Live Demo :
+Infohub</a></h3>
 
 ## Video Walkthrough of the project
 <a href="https://www.youtube.com/watch?v=8w3oPWJzHdU">project
 presentation</a>
 
 ## Features
-- Filter: filters article according to article type
+- Filter: Filters article according to article type
 - User Accounts: You can create accounts on the website
-- Write: You can write article according to your life experience
+- Write: You can write articles according to your wish
+- Search: You can search for an article
+- Infinite scroll: For smooth user experience
+- Bookmark: Save article to see it later
 
 ![image](https://github.com/rajatsah95/Tesla_Techies_038/blob/main/b361.jpg)
 ![image](https://github.com/rajatsah95/Tesla_Techies_038/blob/main/b362.jpg)
@@ -30,7 +33,8 @@ https://tesla-techies-038-2.onrender.com/
 
 ## API Endpoints
 GET /users - used to verify users
-POST /users - used to create new user
+GET /articles
+GET /savedSArticles 
 
 ## Tech Stack
 
@@ -63,8 +67,8 @@ To run this project locally:
 
 ## Acknowledgments
 
-  - Inspired by Infohub.com website
-  - Special thanks to the our mentors/IA <a href="#">Ritesh Ranjan</a>
-for giving us direction for this project.
+  - Inspired by medium.com website
+  - Special thanks to the our mentors <a href="#">Ritesh Ranjan</a>
+for giving us direction and feedback for this project.
 
 
