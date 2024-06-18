@@ -90,7 +90,7 @@
         <div class="con">
             <nav class="nav-bar-1">
                 <div class="nav1-left">
-                    <a href="index2.html" aria-label="logo"><img src="assets/newLogoInfoHub.png" alt=""></a>  
+                    <a href="index.html" aria-label="logo"><img src="assets/newLogoInfoHub.png" alt=""></a>  
                 </div>
                 <div class="nav1-right">
                     <div class="right-button-dot">
@@ -142,6 +142,7 @@ publishBtn.addEventListener('click', (event) => {
 });
 
 async function publish() {
+    let pushId
     console.log("Publish Button Clicked");
 
     let form = document.querySelector("form"); // Assuming there is a form element in your HTML
@@ -149,10 +150,13 @@ async function publish() {
     console.log(title);
     let content = form[1].value;
     console.log(content);
-
+    let uniqueID = Math.floor(Math.random() * 1000000000) + 10000000000;
+    pushId = uniqueID
+    console.log(uniqueID);  
     let obj = {
         "title": title,
         "content": content,
+        "id": uniqueID,
         "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
     };
 
@@ -173,8 +177,38 @@ async function publish() {
     } catch (error) {
         console.error("Error updating user data:", error);
     }
-// /////add savedArticleId to writenArticles array//////////////////////////
 
+// /////add savedArticleId to writenArticles array//////////////////////////
+// const userId = 'YOUR_USER_ID'; // Replace with the actual user ID
+// const uniqueId = 'YOUR_UNIQUE_ID'; // Replace with the actual unique ID to add
+const url = `https://tesla-techies-038-2.onrender.com/users/${userId}`;
+
+// Fetch the current user data
+fetch(url)
+  .then(response => response.json())
+  .then(user => {
+    // Ensure writtenArticles exists and is an array
+    if (!user.writtenArticles) {
+      user.writtenArticles = [];
+    }
+    // Add the uniqueId to the writtenArticles array
+    user.writtenArticles.push(pushId);
+
+    // Send a PATCH request to update the user's data
+    return fetch(url, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ writtenArticles: user.writtenArticles })
+    });
+  })
+  .then(response => response.json())
+  .then(data => console.log('Updated user data:', data))
+  .catch(error => console.error('Error:', error));
+
+
+       
 
 
 
@@ -185,4 +219,5 @@ async function publish() {
 
 }
 
+     
 </script>
