@@ -39,16 +39,32 @@
         }
         .add-data>button {
             position: absolute;
-            top: 23px;
+            top: 15px;
             right: 325px;
-            padding: 5px 10px;
+            
+            /* padding: 5px 10px; */
             border-radius: 20px;
             background-color: green;
             border: none;
             color: white;
-            opacity: 50%;
+            /* opacity: 50%; */
             cursor: pointer;
             width: max-content;
+            background-color: green; /* Vivid purple background */
+        color: #fff; /* White text */
+        border: none; /* Remove default border */
+        border-radius: 25px; /* Rounded corners */
+        padding: 10px 20px;/* Padding for size*/
+        font-weight: bold; 
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: all 0.3s ease; /* Smooth transition for hover effects */  
+        }
+        .add-data>button:hover {
+            background-color: rgb(21, 100, 21); /* Darker purple on hover */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        transform: translateY(-0.5px); /* Slight lift effect on hover */ 
         }
         .add-data>.title-1 {
             margin: 50px 0 0 50px;
@@ -83,6 +99,33 @@
         .output p {
             font-size: 30px;
         }
+
+        .see-story-btn {
+        background-color: green; /* Vivid purple background */
+        color: #fff; /* White text */
+        border: none; /* Remove default border */
+        border-radius: 25px; /* Rounded corners */
+        padding: 15px 30px; /* Padding for size */
+        font-size: 16px; /* Font size */
+        font-weight: bold; /* Bold text */
+        text-transform: uppercase; /* Uppercase text */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: all 0.3s ease; /* Smooth transition for hover effects */
+        margin: 200px;
+    }
+    
+    .see-story-btn:hover {
+        background-color: rgb(21, 100, 21); /* Darker purple on hover */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        transform: translateY(-2px); /* Slight lift effect on hover */
+    }
+    
+    .see-story-btn:active {
+        background-color: #192b1a; /* Original color on click */
+        box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* Slightly reduced shadow on click */
+        transform: translateY(0); /* Reset lift effect on click */
+    }
     </style>
 </head>
 <body>
@@ -118,15 +161,21 @@
                     <button type="submit" class="publish-btn">Publish</button>
                 </form>
             </div>
+            
             <div class="output" id="output">
                 <h1></h1>
                 <p></p>
             </div>
         </div>
+        <button  type="button" class="see-story-btn">See Your Stories</button>
     </section>
 </body>
 </html>
 <script>
+    let seeStoryBtn = document.querySelector(".see-story-btn")
+    seeStoryBtn.addEventListener('click', ()=>{
+        window.location.href = "stories.html"
+    })
      let savedArticlesApi = 'https://tesla-techies-038-2.onrender.com/savedArticles';
    let userId = localStorage.getItem("loggedUserId") 
   if(!userId){
