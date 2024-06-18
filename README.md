@@ -6,7 +6,7 @@ Infohub is an  online publishing platform . The platform is an example of social
 Frontend | Backend
 
 ## Deployed Link
-<a href="https://bewakoooff.netlify.app/html/index.html">Live Demo :
+<a href="https://infohub123.netlify.app/">Live Demo :
 Infohub</a>
 
 ## Video Walkthrough of the project
