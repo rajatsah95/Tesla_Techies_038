@@ -61,3 +61,10 @@ To run this project locally:
 
   This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Acknowledgments
+
+  - Inspired by Infohub.com website
+  - Special thanks to the our mentors/IA <a href="#">Ritesh Ranjan</a>
+for giving us direction for this project.
+
+
