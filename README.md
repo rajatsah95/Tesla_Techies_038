@@ -22,8 +22,8 @@ presentation</a>
 ![image](https://github.com/saif520/Chenab-Pointer-011/assets/62957608/3776604c-83c6-49ba-8811-15f2854b10fc)
 
 ## Credentials
-admin username: rajatsah
-admin password: password
+- username: rajatsah
+- password: password
 
 ## APIs Used
 https://tesla-techies-038-2.onrender.com/
@@ -60,5 +60,5 @@ To run this project locally:
 ## License
 
   This project is licensed under the MIT License - see the <a
-href="#">LICENSE</a> file for details.
+href="https://github.com/rajatsah95/Tesla_Techies_038/tree/develop?tab=License-1-ov-file">LICENSE</a> file for details.
 
