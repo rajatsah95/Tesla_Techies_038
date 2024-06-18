@@ -142,6 +142,7 @@ publishBtn.addEventListener('click', (event) => {
 });
 
 async function publish() {
+    let pushId
     console.log("Publish Button Clicked");
 
     let form = document.querySelector("form"); // Assuming there is a form element in your HTML
@@ -150,6 +151,7 @@ async function publish() {
     let content = form[1].value;
     console.log(content);
     let uniqueID = Math.floor(Math.random() * 1000000000) + 10000000000;
+    pushId = uniqueID
     console.log(uniqueID);  
     let obj = {
         "title": title,
@@ -190,7 +192,7 @@ fetch(url)
       user.writtenArticles = [];
     }
     // Add the uniqueId to the writtenArticles array
-    user.writtenArticles.push(uniqueId);
+    user.writtenArticles.push(pushId);
 
     // Send a PATCH request to update the user's data
     return fetch(url, {
