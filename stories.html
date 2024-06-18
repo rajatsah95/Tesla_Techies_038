@@ -147,6 +147,7 @@
 
         .lib-sec {
             display: flex;
+            position: relative;
         }
 
         .section-left {
@@ -252,8 +253,10 @@
         /* staff  */
         .section-right {
             width: 35%;
-            height: auto;
+            height: 100vh;
             border-left:.1px solid rgb(240, 240, 240) ;
+            position: sticky;
+            top: 0;
             /* border: 1px solid red; */
         }
 
@@ -340,6 +343,21 @@
             border-radius: 20px;
             border: none;
             cursor: pointer;
+        }
+
+
+
+        /* stories add -------------------- */
+        .cardstories{
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            justify-content: space-between;
+            margin: 20px;
+            border: 1px solid gray;
+        }
+        .cardstories>img{
+            height: 200px;
         }
     </style>
 </head>
@@ -542,6 +560,7 @@
         console.log("Inside Showing article data function");
         let myArticles = document.querySelector("#my-articles");
         let myCard = document.createElement("div");
+        myCard.className = "cardstories";
         let myTitle = document.createElement("h3");
         myTitle.innerHTML = data.title;
         let myContent = document.createElement("p");
