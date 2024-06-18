@@ -59,6 +59,5 @@ To run this project locally:
   
 ## License
 
-  This project is licensed under the MIT License - see the <a
-href="https://github.com/rajatsah95/Tesla_Techies_038/tree/develop?tab=License-1-ov-file">LICENSE</a> file for details.
+  This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
