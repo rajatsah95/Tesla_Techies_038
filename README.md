@@ -18,8 +18,8 @@ presentation</a>
 - User Accounts: You can create accounts on the website
 - Write: You can write article according to your life experience
 
-![image](https://github.com/saif520/Chenab-Pointer-011/assets/62957608/2567431c-253a-4e08-a268-886b648649b0)
-![image](https://github.com/saif520/Chenab-Pointer-011/assets/62957608/3776604c-83c6-49ba-8811-15f2854b10fc)
+![image](https://github.com/rajatsah95/Tesla_Techies_038/blob/main/b361.jpg)
+![image](https://github.com/rajatsah95/Tesla_Techies_038/blob/main/b362.jpg)
 
 ## Credentials
 - username: rajatsah
