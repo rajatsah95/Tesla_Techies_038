@@ -351,13 +351,33 @@
         .cardstories{
             display: flex;
             flex-direction: column;
-            /* align-items: center; */
             justify-content: space-between;
             margin: 20px;
             border: 1px solid gray;
         }
         .cardstories>img{
-            height: 200px;
+            height: 2000px;
+            width: 100px;
+        }
+        .story-card{
+            padding: 20px;
+            background-color: rgb(247, 247, 240);
+            display: flex;
+           margin-bottom: 5px;
+           margin-top: 5px;
+        }
+        .story-card img:hover{
+           opacity: 0.8;
+           
+        }
+        .story-card img{
+        width: 200px;
+           
+        }
+        .story-card-text{
+            width: 330px;  
+            margin: 30px; 
+
         }
     </style>
 </head>
@@ -495,11 +515,11 @@
 </body>
 <script>
    document.addEventListener('DOMContentLoaded', async () => {
-    console.log("THE START");
+    console.log("THE START(Stories)");
     
     let articlesApi = 'https://tesla-techies-038-2.onrender.com/articles';
     let userId = localStorage.getItem("loggedUserId") || 1; // Default to 1 if not found
-    console.log(userId);
+    console.log("use id is",  userId);
 
     const userEndpoint = `https://tesla-techies-038-2.onrender.com/users/${userId}`;
     
@@ -534,7 +554,7 @@
     }
 
     let writtenArticlesArray = await fetchTheUser(userEndpoint);
-    console.log(writtenArticlesArray);
+    console.log("writetn artilces array:", writtenArticlesArray);
 
     if (writtenArticlesArray) {
         writtenArticlesArray.forEach(id => {
@@ -547,9 +567,10 @@
             let res = await fetch(`https://tesla-techies-038-2.onrender.com/savedArticles/${id}`);
             if (!res.ok) throw new Error("Network response was not ok");
             let data = await res.json();
-            console.log(data);
+            console.log("data:", data);
             if (data) {
                 showArticle(data);
+                console.log("show article func calling done");
             }
         } catch (error) {
             console.error("Error fetching saved articles:", error);
@@ -557,20 +578,26 @@
     }
 
     function showArticle(data) {
-        console.log("Inside Showing article data function");
+        console.log("Inside Showing written article data function");
         let myArticles = document.querySelector("#my-articles");
         let myCard = document.createElement("div");
+        myCard.className = "story-card"
         let myTitle = document.createElement("h1");
         myTitle.innerHTML = data.title;
         let myContent = document.createElement("p");
         myContent.innerHTML = data.content;
         let myImage = document.createElement("img");
         myImage.src = data.url;
-        myCard.append(myTitle, myContent, myImage);
-        myArticles.append(myCard);
+        let storyCardText = document.createElement("div")
+        storyCardText.append(myTitle, myContent)
+        storyCardText.className = "story-card-text"
+        myCard.append(storyCardText, myImage);
+        let storyHr = document.createElement("hr")
+        myArticles.append(myCard, storyHr );
+     
     }
 
-    console.log("THE END");
+    console.log("THE END-------Stories");
 });
 
 </script>
