@@ -141,8 +141,8 @@
             let stats = document.createElement('div');
             stats.classList.add('stats');
             stats.innerHTML = `
-                <div><i class="fa fa-thumbs-up"></i>${article.claps} claps</div>
-                <div><i class="fa fa-comments"></i>${article.commentCounts} comments</div>
+                <div><i class="fa fa-thumbs-up"></i>${article.claps? article.claps: "no"} claps</div>
+                <div><i class="fa fa-comments"></i>${article.commentCounts? article.commentCounts: "no" } comments</div>
             `;
 
             // Append details to the container
