@@ -157,7 +157,9 @@
             <div class="add-data-1">
                 <form id="dataForm" class="add-data">
                     <input type="text" class="title-1" aria-label="text" placeholder="Title" required>
-                    <input type="text" class="story-1" aria-label="text" placeholder="Tell your story..." required>
+                    <input type="text" class="story-1" aria-label="text" placeholder="Tell your story..." required> <br><br>
+                    <input type="text" class="story-1 paste-url-input" aria-label="text" placeholder="Paste image URL..." required>
+                    
                     <button type="submit" class="publish-btn">Publish</button>
                 </form>
             </div>
@@ -198,6 +200,10 @@ async function publish() {
     let title = form[0].value;
     console.log(title);
     let content = form[1].value;
+    let coverURL = form[2].value;
+    if(!coverURL){
+        coverURL = "https://picsum.photos/300/200"
+    }
     console.log(content);
     let uniqueID = Math.floor(Math.random() * 1000000000) + 10000000000;
     pushId = uniqueID
@@ -206,7 +212,7 @@ async function publish() {
         "title": title,
         "content": content,
         "id": uniqueID,
-        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+        "url": coverURL
     };
 
     try {
