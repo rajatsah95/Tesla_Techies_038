@@ -1,6 +1,6 @@
 ## Infohub
 
-Infohub is an  online publishing platform. The platform is an example of social journalism, having a hybrid collection of amateur and professional people and publications, or exclusive blogs or publishers on Infohub, and is regularly regarded as a blog host.
+Infohub is an online publishing platform. The platform is an example of social journalism, having a hybrid collection of amateur and professional people and publications, or exclusive blogs or publishers on Infohub, and is regularly regarded as a blog host.
 
 ## Project Type
 Frontend | Backend
@@ -43,7 +43,6 @@ GET /savedSArticles
   - Bootstrap: It is used for front-end framework for creating
 responsive website
   - JavaScript: JavaScript is used to create dynamic website
-  - JSON : JSON is used for backed-end purpose.
 
     ## How to Use
 
