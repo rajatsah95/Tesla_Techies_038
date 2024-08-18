@@ -1,6 +1,6 @@
 ## Infohub
 
-Infohub is an online publishing platform. The platform is an example of social journalism, having a hybrid collection of amateur and professional people and publications, or exclusive blogs or publishers on Infohub, and is regularly regarded as a blog host.
+Infohub is an online publishing platform that embodies the concept of social journalism. It offers a hybrid mix of content from both amateur and professional writers, including exclusive blogs and publications hosted on the platform. Infohub is often recognized as a popular destination for blog hosting.
 
 ## Project Type
 Frontend | Backend
